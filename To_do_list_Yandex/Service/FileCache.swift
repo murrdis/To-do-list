@@ -3,12 +3,7 @@ import Foundation
 class FileCache {
     private(set) var todoItems: [TodoItem] = []
     
-    
-    var allTodoItems: [TodoItem] {
-        return todoItems
-    }
-    
-    private func addTodoItem(_ item: TodoItem) {
+    func addTodoItem(_ item: TodoItem) {
         if let existingItemIndex = todoItems.firstIndex(where: { $0.id == item.id }) {
             todoItems[existingItemIndex] = item
         } else {
@@ -16,7 +11,7 @@ class FileCache {
         }
     }
     
-    private func removeTodoItem(withID id: String) {
+    func removeTodoItem(withID id: String) {
         todoItems.removeAll { $0.id == id }
     }
     
@@ -27,8 +22,8 @@ class FileCache {
         
         
         do {
-            let jsonArray = todoItems.map { $0.json } as? [[String : Any]]
-            let jsonData = try JSONSerialization.data(withJSONObject: jsonArray!, options: .prettyPrinted)
+            let jsonArray = todoItems.map { $0.json }
+            let jsonData = try JSONSerialization.data(withJSONObject: jsonArray, options: .prettyPrinted)
 
             try jsonData.write(to: filePath)
             print("Data saved to json file: \(filePath)")

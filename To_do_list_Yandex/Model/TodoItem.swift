@@ -88,37 +88,45 @@ extension TodoItem {
     static func parse(csv: String) -> TodoItem? {
         let components = csv.components(separatedBy: ",")
         
-        guard components.count == 7 else {
+        guard components.count >= 7 else {
             return nil
         }
         
         let id = components[0].isEmpty ? UUID().uuidString : components[0]
-        let text = components[1]
-        
-        let importance: Importance = components[2].isEmpty ? .normal : Importance(rawValue: components[2]) ?? .normal
         
         var deadline: Date? = nil
         var createdAt: Date? = nil
         var changedAt: Date? = nil
         
-        if !components[3].isEmpty {
-            let timeInterval = TimeInterval(components[3])
-            deadline = (timeInterval != nil) ? Date(timeIntervalSince1970: timeInterval!) : nil
-        }
-        
-        let isCompleted = components[4].lowercased() == "true"
-                
-        if !components[5].isEmpty {
-            let timeInterval = TimeInterval(components[5])
-            createdAt = (timeInterval != nil) ? Date(timeIntervalSince1970: timeInterval!) : nil
-        }
-        
-        if !components[6].isEmpty {
-            let timeInterval = TimeInterval(components[6])
+        if !components[components.count-1].isEmpty {
+            let timeInterval = TimeInterval(components[components.count-1])
             changedAt = (timeInterval != nil) ? Date(timeIntervalSince1970: timeInterval!) : nil
         }
         
-        if text == nil || createdAt == nil {
+        if !components[components.count-2].isEmpty {
+            let timeInterval = TimeInterval(components[components.count-2])
+            createdAt = (timeInterval != nil) ? Date(timeIntervalSince1970: timeInterval!) : nil
+        }
+        
+        let isCompleted = components[components.count-3].lowercased() == "true"
+        
+        if !components[components.count-4].isEmpty {
+            let timeInterval = TimeInterval(components[components.count-4])
+            deadline = (timeInterval != nil) ? Date(timeIntervalSince1970: timeInterval!) : nil
+        }
+        
+        let importance: Importance = components[components.count-5].isEmpty ? .normal : Importance(rawValue: components[components.count-5]) ?? .normal
+        
+        var text = components[1]
+        
+        for i in 1..<components.count-5 {
+            text.append(components[i])
+            if i != components.count-6 {
+                text.append(",")
+            }
+        }
+        
+        if text.isEmpty || createdAt == nil {
             return nil
         }
         
