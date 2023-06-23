@@ -10,9 +10,9 @@ struct TodoItem {
     let changedAt: Date?
     
     enum Importance: String {
-        case notImportant = "неважная"
-        case normal = "обычная"
-        case important = "важная"
+        case notImportant
+        case normal
+        case important
     }
     
     init(id: String = UUID().uuidString, text: String, importance: Importance = .normal, deadline: Date? = nil, done: Bool = false, createdAt: Date = Date.now, changedAt: Date? = nil) {
@@ -40,7 +40,7 @@ extension TodoItem {
         let id = dict["id"] as? String ?? UUID().uuidString
         
         let importanceString = dict["importance"] as? String
-        let importance = Importance(rawValue: importanceString ?? "обычная") ?? .normal
+        let importance = Importance(rawValue: importanceString ?? Importance.normal.rawValue) ?? .normal
         
         let deadlineTimestamp = dict["deadline"] as? TimeInterval
         let deadline = deadlineTimestamp != nil ? Date(timeIntervalSince1970: deadlineTimestamp!) : nil
