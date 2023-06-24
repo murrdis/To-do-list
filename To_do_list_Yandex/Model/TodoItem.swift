@@ -8,6 +8,7 @@ struct TodoItem {
     let done: Bool
     let createdAt: Date
     let changedAt: Date?
+    let hexColor: String?
     
     enum Importance: String {
         case notImportant
@@ -15,7 +16,7 @@ struct TodoItem {
         case important
     }
     
-    init(id: String = UUID().uuidString, text: String, importance: Importance = .normal, deadline: Date? = nil, done: Bool = false, createdAt: Date = Date.now, changedAt: Date? = nil) {
+    init(id: String = UUID().uuidString, text: String, importance: Importance = .normal, deadline: Date? = nil, done: Bool = false, createdAt: Date = Date.now, changedAt: Date? = nil, hexColor: String? = nil) {
             self.id = id
             self.text = text
             self.importance = importance
@@ -23,6 +24,7 @@ struct TodoItem {
             self.done = done
             self.createdAt = createdAt
             self.changedAt = changedAt
+            self.hexColor = hexColor
         }
 }
 
@@ -50,6 +52,8 @@ extension TodoItem {
         let changedAtTimestamp = dict["changedAt"] as? TimeInterval
         let changedAt = changedAtTimestamp != nil ? Date(timeIntervalSince1970: changedAtTimestamp!) : nil
         
+        let hexColor = dict["hexColor"] as? String
+        
         return TodoItem(
             id: id,
             text: text,
@@ -57,7 +61,9 @@ extension TodoItem {
             deadline: deadline,
             done: done,
             createdAt: createdAt,
-            changedAt: changedAt)
+            changedAt: changedAt,
+            hexColor: hexColor
+        )
     }
     
     var json: Any {
@@ -79,6 +85,11 @@ extension TodoItem {
         if let theModificationDate = changedAt {
             dict["changedAt"] = theModificationDate.timeIntervalSince1970
         }
+        
+        if let hexColor = hexColor {
+            dict["hexColor"] = hexColor
+        }
+        
         return dict
 
     }

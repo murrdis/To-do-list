@@ -18,6 +18,8 @@ final class TodoItemDetailsView: UIStackView {
         addArrangedSubview(importanceView)
         addArrangedSubview(DividerView())
         addArrangedSubview(deadlineView)
+        addArrangedSubview(DividerView())
+        addArrangedSubview(colorPicker)
         translatesAutoresizingMaskIntoConstraints = false
 
         setupConstraints()
@@ -36,7 +38,7 @@ final class TodoItemDetailsView: UIStackView {
     
     var importanceView = TodoItemImportanceView()
     var deadlineView = TodoItemDeadlineView()
-    
+    var colorPicker = TodoItemColorPickerView()
 
     required init(coder: NSCoder) {
         super.init(coder: coder)

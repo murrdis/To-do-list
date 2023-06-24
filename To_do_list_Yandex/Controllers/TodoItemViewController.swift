@@ -75,6 +75,7 @@ class TodoItemViewController: UIViewController {
         textView.setTaskName(name: todoItem.text)
         detailsView.importanceView.setTaskImportance(importance: todoItem.importance)
         detailsView.deadlineView.setTaskDeadline(deadline: todoItem.deadline)
+        detailsView.colorPicker.setTaskColor(color:  todoItem.hexColor)
         enableNavBarSaveButton(isEnabled: true)
         deleteButton.isEnabled = true
     }
@@ -155,12 +156,13 @@ class TodoItemViewController: UIViewController {
               let importance = detailsView.importanceView.getTaskImportance()
         else { return }
         let deadline = detailsView.deadlineView.getTaskDeadline()
+        let color = detailsView.colorPicker.getTaskColor()
         if (taskId != nil) {
-            let todoItem = TodoItem(id: taskId!, text: text, importance: importance, deadline: deadline)
+            let todoItem = TodoItem(id: taskId!, text: text, importance: importance, deadline: deadline, hexColor: color)
             fileCache.addTodoItem(todoItem)
         }
         else {
-            let todoItem = TodoItem(text: text, importance: importance, deadline: deadline)
+            let todoItem = TodoItem(text: text, importance: importance, deadline: deadline, hexColor: color)
             fileCache.addTodoItem(todoItem)
         }
         
@@ -177,7 +179,7 @@ class TodoItemViewController: UIViewController {
         textView.setTaskName(name: "")
         detailsView.importanceView.setTaskImportance(importance: .important)
         detailsView.deadlineView.setTaskDeadline(deadline: nil)
-        
+        detailsView.colorPicker.setTaskColor(color: Colors.labelPrimary?.hex)
         enableNavBarSaveButton(isEnabled: false)
     }
     
