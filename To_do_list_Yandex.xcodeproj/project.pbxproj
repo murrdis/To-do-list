@@ -10,7 +10,6 @@
 		331AB67D2A3859F100EFDD49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB67C2A3859F100EFDD49 /* AppDelegate.swift */; };
 		331AB67F2A3859F100EFDD49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB67E2A3859F100EFDD49 /* SceneDelegate.swift */; };
 		331AB6812A3859F100EFDD49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB6802A3859F100EFDD49 /* ViewController.swift */; };
-		331AB6842A3859F100EFDD49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 331AB6822A3859F100EFDD49 /* Main.storyboard */; };
 		331AB6862A3859F500EFDD49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 331AB6852A3859F500EFDD49 /* Assets.xcassets */; };
 		331AB6892A3859F500EFDD49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 331AB6872A3859F500EFDD49 /* LaunchScreen.storyboard */; };
 		331AB6942A3859F600EFDD49 /* To_do_list_YandexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB6932A3859F600EFDD49 /* To_do_list_YandexTests.swift */; };
@@ -18,6 +17,24 @@
 		331AB6A02A3859F600EFDD49 /* To_do_list_YandexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB69F2A3859F600EFDD49 /* To_do_list_YandexUITestsLaunchTests.swift */; };
 		331AB6AD2A385BC800EFDD49 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB6AC2A385BC800EFDD49 /* TodoItem.swift */; };
 		331AB6AF2A38E50300EFDD49 /* FileCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB6AE2A38E50300EFDD49 /* FileCache.swift */; };
+		3345CCDC2A462D7800BBEC77 /* SpectrumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCDB2A462D7800BBEC77 /* SpectrumView.swift */; };
+		3345CCE02A462EB400BBEC77 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCDF2A462EB400BBEC77 /* ColorPicker.swift */; };
+		3345CCE22A46313300BBEC77 /* TodoItemColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCE12A46313300BBEC77 /* TodoItemColorPickerView.swift */; };
+		3345CCE52A466D6B00BBEC77 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCE42A466D6B00BBEC77 /* UIColorExtensions.swift */; };
+		3345CCE72A466DA700BBEC77 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCE62A466DA700BBEC77 /* CALayerExtensions.swift */; };
+		33BE54032A43698B00696222 /* TodoItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54022A43698B00696222 /* TodoItemViewController.swift */; };
+		33BE54062A4385A500696222 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54052A4385A500696222 /* Fonts.swift */; };
+		33BE54082A4392B000696222 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54072A4392B000696222 /* Colors.swift */; };
+		33BE540A2A4395EE00696222 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54092A4395EE00696222 /* Images.swift */; };
+		33BE540C2A44535100696222 /* TodoItemImportanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE540B2A44535100696222 /* TodoItemImportanceView.swift */; };
+		33BE54102A44675B00696222 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33BE540D2A44675B00696222 /* SF-Pro-Display-Bold.otf */; };
+		33BE54112A44675B00696222 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33BE540E2A44675B00696222 /* SF-Pro-Display-Semibold.otf */; };
+		33BE54122A44675B00696222 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33BE540F2A44675B00696222 /* SF-Pro-Display-Regular.otf */; };
+		33BE54142A446FE600696222 /* TodoItemTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54132A446FE600696222 /* TodoItemTextView.swift */; };
+		33BE541A2A44899200696222 /* TodoItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54192A44899200696222 /* TodoItemDetailsView.swift */; };
+		33BE541C2A448EF300696222 /* TodoItemDeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE541B2A448EF200696222 /* TodoItemDeadlineView.swift */; };
+		33BE541E2A448F6000696222 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE541D2A448F6000696222 /* DividerView.swift */; };
+		33BE54202A45871200696222 /* TodoItemDeleteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE541F2A45871200696222 /* TodoItemDeleteButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +59,6 @@
 		331AB67C2A3859F100EFDD49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		331AB67E2A3859F100EFDD49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		331AB6802A3859F100EFDD49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		331AB6832A3859F100EFDD49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		331AB6852A3859F500EFDD49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		331AB6882A3859F500EFDD49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		331AB68A2A3859F500EFDD49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +69,24 @@
 		331AB69F2A3859F600EFDD49 /* To_do_list_YandexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = To_do_list_YandexUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		331AB6AC2A385BC800EFDD49 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		331AB6AE2A38E50300EFDD49 /* FileCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCache.swift; sourceTree = "<group>"; };
+		3345CCDB2A462D7800BBEC77 /* SpectrumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumView.swift; sourceTree = "<group>"; };
+		3345CCDF2A462EB400BBEC77 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
+		3345CCE12A46313300BBEC77 /* TodoItemColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemColorPickerView.swift; sourceTree = "<group>"; };
+		3345CCE42A466D6B00BBEC77 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		3345CCE62A466DA700BBEC77 /* CALayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
+		33BE54022A43698B00696222 /* TodoItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemViewController.swift; sourceTree = "<group>"; };
+		33BE54052A4385A500696222 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		33BE54072A4392B000696222 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		33BE54092A4395EE00696222 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		33BE540B2A44535100696222 /* TodoItemImportanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemImportanceView.swift; sourceTree = "<group>"; };
+		33BE540D2A44675B00696222 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Display-Bold.otf"; path = "To_do_list_Yandex/Resources/SF-Pro-Display-Bold.otf"; sourceTree = SOURCE_ROOT; };
+		33BE540E2A44675B00696222 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
+		33BE540F2A44675B00696222 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
+		33BE54132A446FE600696222 /* TodoItemTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemTextView.swift; sourceTree = "<group>"; };
+		33BE54192A44899200696222 /* TodoItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemDetailsView.swift; sourceTree = "<group>"; };
+		33BE541B2A448EF200696222 /* TodoItemDeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemDeadlineView.swift; sourceTree = "<group>"; };
+		33BE541D2A448F6000696222 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
+		33BE541F2A45871200696222 /* TodoItemDeleteButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemDeleteButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +137,13 @@
 		331AB67B2A3859F100EFDD49 /* To_do_list_Yandex */ = {
 			isa = PBXGroup;
 			children = (
+				3345CCE32A466D5E00BBEC77 /* Extensions */,
+				33BE54002A43073B00696222 /* Application */,
 				331AB6B22A3CECDD00EFDD49 /* Model */,
 				331AB6B32A3CED0B00EFDD49 /* Service */,
-				331AB67C2A3859F100EFDD49 /* AppDelegate.swift */,
-				331AB67E2A3859F100EFDD49 /* SceneDelegate.swift */,
-				331AB6802A3859F100EFDD49 /* ViewController.swift */,
-				331AB6822A3859F100EFDD49 /* Main.storyboard */,
-				331AB6852A3859F500EFDD49 /* Assets.xcassets */,
+				33BE54152A447FD600696222 /* TodoItemDetailsView */,
+				33BE54042A43698F00696222 /* Controllers */,
+				33BE53FF2A43061000696222 /* Resources */,
 				331AB6872A3859F500EFDD49 /* LaunchScreen.storyboard */,
 				331AB68A2A3859F500EFDD49 /* Info.plist */,
 			);
@@ -147,6 +181,71 @@
 				331AB6AE2A38E50300EFDD49 /* FileCache.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		3345CCE32A466D5E00BBEC77 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3345CCE42A466D6B00BBEC77 /* UIColorExtensions.swift */,
+				3345CCE62A466DA700BBEC77 /* CALayerExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		33BE53FF2A43061000696222 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				331AB6852A3859F500EFDD49 /* Assets.xcassets */,
+				33BE54052A4385A500696222 /* Fonts.swift */,
+				33BE540D2A44675B00696222 /* SF-Pro-Display-Bold.otf */,
+				33BE540F2A44675B00696222 /* SF-Pro-Display-Regular.otf */,
+				33BE540E2A44675B00696222 /* SF-Pro-Display-Semibold.otf */,
+				33BE54072A4392B000696222 /* Colors.swift */,
+				33BE54092A4395EE00696222 /* Images.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		33BE54002A43073B00696222 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				331AB67C2A3859F100EFDD49 /* AppDelegate.swift */,
+				331AB67E2A3859F100EFDD49 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		33BE54012A43074800696222 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				33BE54132A446FE600696222 /* TodoItemTextView.swift */,
+				33BE54192A44899200696222 /* TodoItemDetailsView.swift */,
+				33BE540B2A44535100696222 /* TodoItemImportanceView.swift */,
+				33BE541D2A448F6000696222 /* DividerView.swift */,
+				33BE541B2A448EF200696222 /* TodoItemDeadlineView.swift */,
+				3345CCDB2A462D7800BBEC77 /* SpectrumView.swift */,
+				3345CCDF2A462EB400BBEC77 /* ColorPicker.swift */,
+				3345CCE12A46313300BBEC77 /* TodoItemColorPickerView.swift */,
+				33BE541F2A45871200696222 /* TodoItemDeleteButtonView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		33BE54042A43698F00696222 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				331AB6802A3859F100EFDD49 /* ViewController.swift */,
+				33BE54022A43698B00696222 /* TodoItemViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		33BE54152A447FD600696222 /* TodoItemDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				33BE54012A43074800696222 /* Views */,
+			);
+			path = TodoItemDetailsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,9 +352,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33BE54112A44675B00696222 /* SF-Pro-Display-Semibold.otf in Resources */,
 				331AB6892A3859F500EFDD49 /* LaunchScreen.storyboard in Resources */,
 				331AB6862A3859F500EFDD49 /* Assets.xcassets in Resources */,
-				331AB6842A3859F100EFDD49 /* Main.storyboard in Resources */,
+				33BE54122A44675B00696222 /* SF-Pro-Display-Regular.otf in Resources */,
+				33BE54102A44675B00696222 /* SF-Pro-Display-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,11 +381,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33BE541C2A448EF300696222 /* TodoItemDeadlineView.swift in Sources */,
+				33BE54062A4385A500696222 /* Fonts.swift in Sources */,
+				33BE541E2A448F6000696222 /* DividerView.swift in Sources */,
+				33BE54082A4392B000696222 /* Colors.swift in Sources */,
+				33BE54202A45871200696222 /* TodoItemDeleteButtonView.swift in Sources */,
+				33BE540C2A44535100696222 /* TodoItemImportanceView.swift in Sources */,
+				3345CCE52A466D6B00BBEC77 /* UIColorExtensions.swift in Sources */,
+				3345CCE72A466DA700BBEC77 /* CALayerExtensions.swift in Sources */,
+				3345CCE02A462EB400BBEC77 /* ColorPicker.swift in Sources */,
 				331AB6812A3859F100EFDD49 /* ViewController.swift in Sources */,
 				331AB67D2A3859F100EFDD49 /* AppDelegate.swift in Sources */,
+				3345CCE22A46313300BBEC77 /* TodoItemColorPickerView.swift in Sources */,
+				33BE54142A446FE600696222 /* TodoItemTextView.swift in Sources */,
+				33BE540A2A4395EE00696222 /* Images.swift in Sources */,
 				331AB6AD2A385BC800EFDD49 /* TodoItem.swift in Sources */,
+				3345CCDC2A462D7800BBEC77 /* SpectrumView.swift in Sources */,
 				331AB6AF2A38E50300EFDD49 /* FileCache.swift in Sources */,
 				331AB67F2A3859F100EFDD49 /* SceneDelegate.swift in Sources */,
+				33BE541A2A44899200696222 /* TodoItemDetailsView.swift in Sources */,
+				33BE54032A43698B00696222 /* TodoItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,14 +437,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		331AB6822A3859F100EFDD49 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				331AB6832A3859F100EFDD49 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		331AB6872A3859F500EFDD49 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -466,7 +574,6 @@
 				INFOPLIST_FILE = To_do_list_Yandex/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -494,7 +601,6 @@
 				INFOPLIST_FILE = To_do_list_Yandex/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

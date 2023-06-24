@@ -3,6 +3,8 @@ import Foundation
 class FileCache {
     private(set) var todoItems: [TodoItem] = []
     
+    static let fileCacheObj = FileCache()
+    
     func addTodoItem(_ item: TodoItem) {
         if let existingItemIndex = todoItems.firstIndex(where: { $0.id == item.id }) {
             todoItems[existingItemIndex] = item
