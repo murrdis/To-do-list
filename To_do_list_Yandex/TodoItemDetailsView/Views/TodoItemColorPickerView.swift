@@ -2,20 +2,20 @@ import UIKit
 
 class TodoItemColorPickerView: UIStackView {
     
-    private var color: String = (Colors.labelPrimary?.hex)!
+    private var color: HEX = (Colors.labelPrimary?.hex)!
     private var alphaComponent: CGFloat = 1.0
     
-    func getTaskColor() -> String {
+    func getTaskColor() -> HEX {
         return color
     }
     
-    func setTaskColor(color: String?) {
-        if (color != nil) && color != (Colors.labelPrimary?.hex)! {
-            self.color = color!
+    func setTaskColor(color: HEX) {
+        if color != (Colors.labelPrimary?.hex)! {
+            self.color = color
             colorSwitch.isOn = true
 
             colorButton.setTitle(color, for: .normal)
-            colorButton.setTitleColor(UIColor(hex: color!), for: .normal)
+            colorButton.setTitleColor(UIColor(hex: color), for: .normal)
         }
         else {
             colorSwitch.isOn = false
@@ -85,8 +85,6 @@ class TodoItemColorPickerView: UIStackView {
         
         let label = UILabel()
         label.text = "Яркость"
-        
-
         
         stackView.addArrangedSubview(label)
         stackView.addArrangedSubview(slider)

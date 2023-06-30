@@ -5,10 +5,10 @@ struct TodoItem {
     let text: String
     let importance: Importance
     let deadline: Date?
-    let done: Bool
+    var done: Bool
     let createdAt: Date
     let changedAt: Date?
-    let hexColor: String?
+    let hexColor: HEX?
     
     enum Importance: String {
         case notImportant
@@ -16,7 +16,7 @@ struct TodoItem {
         case important
     }
     
-    init(id: String = UUID().uuidString, text: String, importance: Importance = .normal, deadline: Date? = nil, done: Bool = false, createdAt: Date = Date.now, changedAt: Date? = nil, hexColor: String? = nil) {
+    init(id: String = UUID().uuidString, text: String, importance: Importance = .normal, deadline: Date? = nil, done: Bool = false, createdAt: Date = Date.now, changedAt: Date? = nil, hexColor: HEX? = nil) {
             self.id = id
             self.text = text
             self.importance = importance
@@ -52,7 +52,7 @@ extension TodoItem {
         let changedAtTimestamp = dict["changedAt"] as? TimeInterval
         let changedAt = changedAtTimestamp != nil ? Date(timeIntervalSince1970: changedAtTimestamp!) : nil
         
-        let hexColor = dict["hexColor"] as? String
+        let hexColor = dict["hexColor"] as? HEX
         
         return TodoItem(
             id: id,

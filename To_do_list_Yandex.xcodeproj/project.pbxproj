@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17DEAD0F05052DBFD832C3E9 /* Pods_To_do_list_Yandex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04F89CB2B2A870030970C04 /* Pods_To_do_list_Yandex.framework */; };
 		331AB67D2A3859F100EFDD49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB67C2A3859F100EFDD49 /* AppDelegate.swift */; };
 		331AB67F2A3859F100EFDD49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB67E2A3859F100EFDD49 /* SceneDelegate.swift */; };
 		331AB6812A3859F100EFDD49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB6802A3859F100EFDD49 /* ViewController.swift */; };
@@ -22,19 +23,20 @@
 		3345CCE22A46313300BBEC77 /* TodoItemColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCE12A46313300BBEC77 /* TodoItemColorPickerView.swift */; };
 		3345CCE52A466D6B00BBEC77 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCE42A466D6B00BBEC77 /* UIColorExtensions.swift */; };
 		3345CCE72A466DA700BBEC77 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCE62A466DA700BBEC77 /* CALayerExtensions.swift */; };
-		33BE54032A43698B00696222 /* TodoItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54022A43698B00696222 /* TodoItemViewController.swift */; };
+		33673A0A2A4F1A4300B8C2C3 /* MyLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 33673A092A4F1A4300B8C2C3 /* MyLibrary */; };
+		33BD028F2A4C9D49009BF494 /* TodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BD028E2A4C9D49009BF494 /* TodoListTableViewCell.swift */; };
+		33BE54032A43698B00696222 /* TodoItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54022A43698B00696222 /* TodoItemDetailsViewController.swift */; };
 		33BE54062A4385A500696222 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54052A4385A500696222 /* Fonts.swift */; };
 		33BE54082A4392B000696222 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54072A4392B000696222 /* Colors.swift */; };
 		33BE540A2A4395EE00696222 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54092A4395EE00696222 /* Images.swift */; };
 		33BE540C2A44535100696222 /* TodoItemImportanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE540B2A44535100696222 /* TodoItemImportanceView.swift */; };
-		33BE54102A44675B00696222 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33BE540D2A44675B00696222 /* SF-Pro-Display-Bold.otf */; };
-		33BE54112A44675B00696222 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33BE540E2A44675B00696222 /* SF-Pro-Display-Semibold.otf */; };
-		33BE54122A44675B00696222 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 33BE540F2A44675B00696222 /* SF-Pro-Display-Regular.otf */; };
 		33BE54142A446FE600696222 /* TodoItemTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54132A446FE600696222 /* TodoItemTextView.swift */; };
 		33BE541A2A44899200696222 /* TodoItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54192A44899200696222 /* TodoItemDetailsView.swift */; };
 		33BE541C2A448EF300696222 /* TodoItemDeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE541B2A448EF200696222 /* TodoItemDeadlineView.swift */; };
 		33BE541E2A448F6000696222 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE541D2A448F6000696222 /* DividerView.swift */; };
 		33BE54202A45871200696222 /* TodoItemDeleteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE541F2A45871200696222 /* TodoItemDeleteButtonView.swift */; };
+		6F5A02DC1FEDE3D6E78E3CEE /* Pods_To_do_list_YandexTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBA928E6988263E4FD68B1D /* Pods_To_do_list_YandexTests.framework */; };
+		995B4B06C0D3EEEE5F6931C6 /* Pods_To_do_list_Yandex_To_do_list_YandexUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F2A8FE5EDFBBA095855DCEC /* Pods_To_do_list_Yandex_To_do_list_YandexUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,19 +76,26 @@
 		3345CCE12A46313300BBEC77 /* TodoItemColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemColorPickerView.swift; sourceTree = "<group>"; };
 		3345CCE42A466D6B00BBEC77 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		3345CCE62A466DA700BBEC77 /* CALayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
-		33BE54022A43698B00696222 /* TodoItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemViewController.swift; sourceTree = "<group>"; };
+		33BD028E2A4C9D49009BF494 /* TodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableViewCell.swift; sourceTree = "<group>"; };
+		33BE54022A43698B00696222 /* TodoItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemDetailsViewController.swift; sourceTree = "<group>"; };
 		33BE54052A4385A500696222 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		33BE54072A4392B000696222 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		33BE54092A4395EE00696222 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		33BE540B2A44535100696222 /* TodoItemImportanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemImportanceView.swift; sourceTree = "<group>"; };
-		33BE540D2A44675B00696222 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Display-Bold.otf"; path = "To_do_list_Yandex/Resources/SF-Pro-Display-Bold.otf"; sourceTree = SOURCE_ROOT; };
-		33BE540E2A44675B00696222 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
-		33BE540F2A44675B00696222 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
 		33BE54132A446FE600696222 /* TodoItemTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemTextView.swift; sourceTree = "<group>"; };
 		33BE54192A44899200696222 /* TodoItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemDetailsView.swift; sourceTree = "<group>"; };
 		33BE541B2A448EF200696222 /* TodoItemDeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemDeadlineView.swift; sourceTree = "<group>"; };
 		33BE541D2A448F6000696222 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		33BE541F2A45871200696222 /* TodoItemDeleteButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemDeleteButtonView.swift; sourceTree = "<group>"; };
+		4F2A8FE5EDFBBA095855DCEC /* Pods_To_do_list_Yandex_To_do_list_YandexUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_To_do_list_Yandex_To_do_list_YandexUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		512D20F801B93D374CAA0EF1 /* Pods-To_do_list_Yandex-To_do_list_YandexUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To_do_list_Yandex-To_do_list_YandexUITests.release.xcconfig"; path = "Target Support Files/Pods-To_do_list_Yandex-To_do_list_YandexUITests/Pods-To_do_list_Yandex-To_do_list_YandexUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5BBA928E6988263E4FD68B1D /* Pods_To_do_list_YandexTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_To_do_list_YandexTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65F028DB1978A714C54677D4 /* Pods-To_do_list_Yandex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To_do_list_Yandex.debug.xcconfig"; path = "Target Support Files/Pods-To_do_list_Yandex/Pods-To_do_list_Yandex.debug.xcconfig"; sourceTree = "<group>"; };
+		6829F62E48BDB8C953348D3C /* Pods-To_do_list_YandexTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To_do_list_YandexTests.debug.xcconfig"; path = "Target Support Files/Pods-To_do_list_YandexTests/Pods-To_do_list_YandexTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E2A63B12F4727B4E1FB45F8F /* Pods-To_do_list_YandexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To_do_list_YandexTests.release.xcconfig"; path = "Target Support Files/Pods-To_do_list_YandexTests/Pods-To_do_list_YandexTests.release.xcconfig"; sourceTree = "<group>"; };
+		E57196220A94CE14AFD19C3B /* Pods-To_do_list_Yandex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To_do_list_Yandex.release.xcconfig"; path = "Target Support Files/Pods-To_do_list_Yandex/Pods-To_do_list_Yandex.release.xcconfig"; sourceTree = "<group>"; };
+		F04F89CB2B2A870030970C04 /* Pods_To_do_list_Yandex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_To_do_list_Yandex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF21242C176D94B5DC1DBFCB /* Pods-To_do_list_Yandex-To_do_list_YandexUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To_do_list_Yandex-To_do_list_YandexUITests.debug.xcconfig"; path = "Target Support Files/Pods-To_do_list_Yandex-To_do_list_YandexUITests/Pods-To_do_list_Yandex-To_do_list_YandexUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +103,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33673A0A2A4F1A4300B8C2C3 /* MyLibrary in Frameworks */,
+				17DEAD0F05052DBFD832C3E9 /* Pods_To_do_list_Yandex.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F5A02DC1FEDE3D6E78E3CEE /* Pods_To_do_list_YandexTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,12 +120,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				995B4B06C0D3EEEE5F6931C6 /* Pods_To_do_list_Yandex_To_do_list_YandexUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18EF323F4B7F9137A1DB4828 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65F028DB1978A714C54677D4 /* Pods-To_do_list_Yandex.debug.xcconfig */,
+				E57196220A94CE14AFD19C3B /* Pods-To_do_list_Yandex.release.xcconfig */,
+				FF21242C176D94B5DC1DBFCB /* Pods-To_do_list_Yandex-To_do_list_YandexUITests.debug.xcconfig */,
+				512D20F801B93D374CAA0EF1 /* Pods-To_do_list_Yandex-To_do_list_YandexUITests.release.xcconfig */,
+				6829F62E48BDB8C953348D3C /* Pods-To_do_list_YandexTests.debug.xcconfig */,
+				E2A63B12F4727B4E1FB45F8F /* Pods-To_do_list_YandexTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		331AB6702A3859F100EFDD49 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +147,8 @@
 				331AB6922A3859F600EFDD49 /* To_do_list_YandexTests */,
 				331AB69C2A3859F600EFDD49 /* To_do_list_YandexUITests */,
 				331AB67A2A3859F100EFDD49 /* Products */,
+				18EF323F4B7F9137A1DB4828 /* Pods */,
+				96016318FAFFD94D7A2FFE7D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +170,7 @@
 				331AB6B22A3CECDD00EFDD49 /* Model */,
 				331AB6B32A3CED0B00EFDD49 /* Service */,
 				33BE54152A447FD600696222 /* TodoItemDetailsView */,
+				33BD028D2A4C9D1B009BF494 /* TodoListView */,
 				33BE54042A43698F00696222 /* Controllers */,
 				33BE53FF2A43061000696222 /* Resources */,
 				331AB6872A3859F500EFDD49 /* LaunchScreen.storyboard */,
@@ -192,14 +221,19 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		33BD028D2A4C9D1B009BF494 /* TodoListView */ = {
+			isa = PBXGroup;
+			children = (
+				33BD028E2A4C9D49009BF494 /* TodoListTableViewCell.swift */,
+			);
+			path = TodoListView;
+			sourceTree = "<group>";
+		};
 		33BE53FF2A43061000696222 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				331AB6852A3859F500EFDD49 /* Assets.xcassets */,
 				33BE54052A4385A500696222 /* Fonts.swift */,
-				33BE540D2A44675B00696222 /* SF-Pro-Display-Bold.otf */,
-				33BE540F2A44675B00696222 /* SF-Pro-Display-Regular.otf */,
-				33BE540E2A44675B00696222 /* SF-Pro-Display-Semibold.otf */,
 				33BE54072A4392B000696222 /* Colors.swift */,
 				33BE54092A4395EE00696222 /* Images.swift */,
 			);
@@ -235,7 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				331AB6802A3859F100EFDD49 /* ViewController.swift */,
-				33BE54022A43698B00696222 /* TodoItemViewController.swift */,
+				33BE54022A43698B00696222 /* TodoItemDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -248,6 +282,16 @@
 			path = TodoItemDetailsView;
 			sourceTree = "<group>";
 		};
+		96016318FAFFD94D7A2FFE7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F04F89CB2B2A870030970C04 /* Pods_To_do_list_Yandex.framework */,
+				4F2A8FE5EDFBBA095855DCEC /* Pods_To_do_list_Yandex_To_do_list_YandexUITests.framework */,
+				5BBA928E6988263E4FD68B1D /* Pods_To_do_list_YandexTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -255,6 +299,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 331AB6A32A3859F600EFDD49 /* Build configuration list for PBXNativeTarget "To_do_list_Yandex" */;
 			buildPhases = (
+				17478433855F7B11934BFD2A /* [CP] Check Pods Manifest.lock */,
 				331AB6752A3859F100EFDD49 /* Sources */,
 				331AB6762A3859F100EFDD49 /* Frameworks */,
 				331AB6772A3859F100EFDD49 /* Resources */,
@@ -264,6 +309,9 @@
 			dependencies = (
 			);
 			name = To_do_list_Yandex;
+			packageProductDependencies = (
+				33673A092A4F1A4300B8C2C3 /* MyLibrary */,
+			);
 			productName = To_do_list_Yandex;
 			productReference = 331AB6792A3859F100EFDD49 /* To_do_list_Yandex.app */;
 			productType = "com.apple.product-type.application";
@@ -272,6 +320,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 331AB6A62A3859F600EFDD49 /* Build configuration list for PBXNativeTarget "To_do_list_YandexTests" */;
 			buildPhases = (
+				84020F586525C11335F04239 /* [CP] Check Pods Manifest.lock */,
 				331AB68B2A3859F600EFDD49 /* Sources */,
 				331AB68C2A3859F600EFDD49 /* Frameworks */,
 				331AB68D2A3859F600EFDD49 /* Resources */,
@@ -290,6 +339,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 331AB6A92A3859F600EFDD49 /* Build configuration list for PBXNativeTarget "To_do_list_YandexUITests" */;
 			buildPhases = (
+				0CDB544D826F553E6F08F2BF /* [CP] Check Pods Manifest.lock */,
 				331AB6952A3859F600EFDD49 /* Sources */,
 				331AB6962A3859F600EFDD49 /* Frameworks */,
 				331AB6972A3859F600EFDD49 /* Resources */,
@@ -352,11 +402,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33BE54112A44675B00696222 /* SF-Pro-Display-Semibold.otf in Resources */,
 				331AB6892A3859F500EFDD49 /* LaunchScreen.storyboard in Resources */,
 				331AB6862A3859F500EFDD49 /* Assets.xcassets in Resources */,
-				33BE54122A44675B00696222 /* SF-Pro-Display-Regular.otf in Resources */,
-				33BE54102A44675B00696222 /* SF-Pro-Display-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,11 +423,81 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0CDB544D826F553E6F08F2BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-To_do_list_Yandex-To_do_list_YandexUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		17478433855F7B11934BFD2A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-To_do_list_Yandex-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84020F586525C11335F04239 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-To_do_list_YandexTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		331AB6752A3859F100EFDD49 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33BD028F2A4C9D49009BF494 /* TodoListTableViewCell.swift in Sources */,
 				33BE541C2A448EF300696222 /* TodoItemDeadlineView.swift in Sources */,
 				33BE54062A4385A500696222 /* Fonts.swift in Sources */,
 				33BE541E2A448F6000696222 /* DividerView.swift in Sources */,
@@ -400,7 +517,7 @@
 				331AB6AF2A38E50300EFDD49 /* FileCache.swift in Sources */,
 				331AB67F2A3859F100EFDD49 /* SceneDelegate.swift in Sources */,
 				33BE541A2A44899200696222 /* TodoItemDetailsView.swift in Sources */,
-				33BE54032A43698B00696222 /* TodoItemViewController.swift in Sources */,
+				33BE54032A43698B00696222 /* TodoItemDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +681,7 @@
 		};
 		331AB6A42A3859F600EFDD49 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65F028DB1978A714C54677D4 /* Pods-To_do_list_Yandex.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -591,6 +709,7 @@
 		};
 		331AB6A52A3859F600EFDD49 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E57196220A94CE14AFD19C3B /* Pods-To_do_list_Yandex.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -618,6 +737,7 @@
 		};
 		331AB6A72A3859F600EFDD49 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6829F62E48BDB8C953348D3C /* Pods-To_do_list_YandexTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -638,6 +758,7 @@
 		};
 		331AB6A82A3859F600EFDD49 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2A63B12F4727B4E1FB45F8F /* Pods-To_do_list_YandexTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -658,6 +779,7 @@
 		};
 		331AB6AA2A3859F600EFDD49 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF21242C176D94B5DC1DBFCB /* Pods-To_do_list_Yandex-To_do_list_YandexUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -676,6 +798,7 @@
 		};
 		331AB6AB2A3859F600EFDD49 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 512D20F801B93D374CAA0EF1 /* Pods-To_do_list_Yandex-To_do_list_YandexUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -732,6 +855,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		33673A092A4F1A4300B8C2C3 /* MyLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MyLibrary;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 331AB6712A3859F100EFDD49 /* Project object */;
 }
