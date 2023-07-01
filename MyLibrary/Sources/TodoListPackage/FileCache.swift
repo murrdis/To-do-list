@@ -1,12 +1,12 @@
 import Foundation
 import CocoaLumberjackSwift
 
-class FileCache {
-    private(set) var todoItems: [TodoItem] = []
+public class FileCache {
+    private(set) public var todoItems: [TodoItem] = []
     
-    static let fileCacheObj = FileCache()
+    public static let fileCacheObj = FileCache()
     
-    func addChangeTodoItem(_ item: TodoItem) {
+    public func addChangeTodoItem(_ item: TodoItem) {
         if let existingItemIndex = todoItems.firstIndex(where: { $0.id == item.id }) {
             todoItems[existingItemIndex] = item
         } else {
@@ -15,12 +15,12 @@ class FileCache {
         saveJsonToFile("TodoItems")
     }
     
-    func removeTodoItem(withID id: String) {
+    public func removeTodoItem(withID id: String) {
         todoItems.removeAll { $0.id == id }
         saveJsonToFile("TodoItems")
     }    
     
-    func saveJsonToFile(_ fileName: String) {
+    public func saveJsonToFile(_ fileName: String) {
         
         let filePath = Constants.documentDirectory.appendingPathComponent(fileName)
 
@@ -41,7 +41,7 @@ class FileCache {
         }
     }
     
-    func loadJsonFromFile(_ fileName: String) {
+    public func loadJsonFromFile(_ fileName: String) {
 
         let filePath = Constants.documentDirectory.appendingPathComponent(fileName)
         
@@ -66,7 +66,7 @@ class FileCache {
     }
     
     
-    func saveCsvToFile(_ fileName: String) {
+    public func saveCsvToFile(_ fileName: String) {
         
         let filePath = Constants.documentDirectory.appendingPathComponent(fileName)
 
@@ -80,7 +80,7 @@ class FileCache {
         }
     }
     
-    func loadCsvFromFile(_ fileName: String) {
+    public func loadCsvFromFile(_ fileName: String) {
         
         let filePath = Constants.documentDirectory.appendingPathComponent(fileName)
 
@@ -113,5 +113,4 @@ struct Constants {
         for: .documentDirectory,
         in: .userDomainMask
     ).first!
-
 }

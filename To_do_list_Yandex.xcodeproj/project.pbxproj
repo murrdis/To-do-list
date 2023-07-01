@@ -16,12 +16,9 @@
 		331AB6942A3859F600EFDD49 /* To_do_list_YandexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB6932A3859F600EFDD49 /* To_do_list_YandexTests.swift */; };
 		331AB69E2A3859F600EFDD49 /* TodolistYandexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB69D2A3859F600EFDD49 /* TodolistYandexUITests.swift */; };
 		331AB6A02A3859F600EFDD49 /* TodolistYandexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB69F2A3859F600EFDD49 /* TodolistYandexUITestsLaunchTests.swift */; };
-		331AB6AD2A385BC800EFDD49 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB6AC2A385BC800EFDD49 /* TodoItem.swift */; };
-		331AB6AF2A38E50300EFDD49 /* FileCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB6AE2A38E50300EFDD49 /* FileCache.swift */; };
 		3345CCDC2A462D7800BBEC77 /* SpectrumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCDB2A462D7800BBEC77 /* SpectrumView.swift */; };
 		3345CCE02A462EB400BBEC77 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCDF2A462EB400BBEC77 /* ColorPicker.swift */; };
 		3345CCE22A46313300BBEC77 /* TodoItemColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCE12A46313300BBEC77 /* TodoItemColorPickerView.swift */; };
-		3345CCE52A466D6B00BBEC77 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCE42A466D6B00BBEC77 /* UIColorExtensions.swift */; };
 		3345CCE72A466DA700BBEC77 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCE62A466DA700BBEC77 /* CALayerExtensions.swift */; };
 		33673A0A2A4F1A4300B8C2C3 /* MyLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 33673A092A4F1A4300B8C2C3 /* MyLibrary */; };
 		33673A0D2A4F874200B8C2C3 /* TodoListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33673A0C2A4F874200B8C2C3 /* TodoListHeaderView.swift */; };
@@ -71,12 +68,9 @@
 		331AB6992A3859F600EFDD49 /* To_do_list_YandexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = To_do_list_YandexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		331AB69D2A3859F600EFDD49 /* TodolistYandexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodolistYandexUITests.swift; sourceTree = "<group>"; };
 		331AB69F2A3859F600EFDD49 /* TodolistYandexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodolistYandexUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		331AB6AC2A385BC800EFDD49 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
-		331AB6AE2A38E50300EFDD49 /* FileCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCache.swift; sourceTree = "<group>"; };
 		3345CCDB2A462D7800BBEC77 /* SpectrumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumView.swift; sourceTree = "<group>"; };
 		3345CCDF2A462EB400BBEC77 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		3345CCE12A46313300BBEC77 /* TodoItemColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemColorPickerView.swift; sourceTree = "<group>"; };
-		3345CCE42A466D6B00BBEC77 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		3345CCE62A466DA700BBEC77 /* CALayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
 		33673A0C2A4F874200B8C2C3 /* TodoListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListHeaderView.swift; sourceTree = "<group>"; };
 		33673A0E2A4F9D7400B8C2C3 /* CustomTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -203,7 +197,6 @@
 		331AB6B22A3CECDD00EFDD49 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				331AB6AC2A385BC800EFDD49 /* TodoItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,7 +204,6 @@
 		331AB6B32A3CED0B00EFDD49 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				331AB6AE2A38E50300EFDD49 /* FileCache.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -219,7 +211,6 @@
 		3345CCE32A466D5E00BBEC77 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3345CCE42A466D6B00BBEC77 /* UIColorExtensions.swift */,
 				3345CCE62A466DA700BBEC77 /* CALayerExtensions.swift */,
 			);
 			path = Extensions;
@@ -529,7 +520,6 @@
 				33BE54082A4392B000696222 /* Colors.swift in Sources */,
 				33BE54202A45871200696222 /* TodoItemDeleteButtonView.swift in Sources */,
 				33BE540C2A44535100696222 /* TodoItemImportanceView.swift in Sources */,
-				3345CCE52A466D6B00BBEC77 /* UIColorExtensions.swift in Sources */,
 				3345CCE72A466DA700BBEC77 /* CALayerExtensions.swift in Sources */,
 				3345CCE02A462EB400BBEC77 /* ColorPicker.swift in Sources */,
 				331AB6812A3859F100EFDD49 /* ViewController.swift in Sources */,
@@ -537,9 +527,7 @@
 				3345CCE22A46313300BBEC77 /* TodoItemColorPickerView.swift in Sources */,
 				33BE54142A446FE600696222 /* TodoItemTextView.swift in Sources */,
 				33BE540A2A4395EE00696222 /* Images.swift in Sources */,
-				331AB6AD2A385BC800EFDD49 /* TodoItem.swift in Sources */,
 				3345CCDC2A462D7800BBEC77 /* SpectrumView.swift in Sources */,
-				331AB6AF2A38E50300EFDD49 /* FileCache.swift in Sources */,
 				331AB67F2A3859F100EFDD49 /* SceneDelegate.swift in Sources */,
 				33673A0F2A4F9D7400B8C2C3 /* CustomTransitionAnimator.swift in Sources */,
 				33BE541A2A44899200696222 /* TodoItemDetailsView.swift in Sources */,

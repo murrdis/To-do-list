@@ -1,27 +1,27 @@
 import Foundation
 
-struct TodoItem {
-    let id: String
-    let text: String
-    let importance: Importance
-    let deadline: Date?
-    let done: Bool
-    let createdAt: Date
-    let changedAt: Date?
-    let hexColor: HEX?
+public struct TodoItem {
+    public let id: String
+    public let text: String
+    public let importance: Importance
+    public let deadline: Date?
+    public let done: Bool
+    public let createdAt: Date
+    public let changedAt: Date?
+    public let hexColor: HEX?
     
-    enum Importance: String {
+    public enum Importance: String {
         case notImportant
         case normal
         case important
     }
     
-    init(id: String = UUID().uuidString,
+    public init(id: String = UUID().uuidString,
          text: String,
          importance: Importance = .normal,
          deadline: Date? = nil,
          done: Bool = false,
-         createdAt: Date = Date.now,
+         createdAt: Date = Date(),
          changedAt: Date? = nil,
          hexColor: HEX? = nil) {
             self.id = id
@@ -36,7 +36,7 @@ struct TodoItem {
 }
 
 extension TodoItem {
-    static func parse(json: Any) -> TodoItem? {
+    public static func parse(json: Any) -> TodoItem? {
         
         guard let dict = json as? [String: Any],
               let text = dict["text"] as? String,
@@ -73,7 +73,7 @@ extension TodoItem {
         )
     }
     
-    var json: Any {
+    public var json: Any {
         var dict: [String: Any] = [
             "id": id,
             "text": text,
@@ -103,7 +103,7 @@ extension TodoItem {
 }
 
 extension TodoItem {
-    static func parse(csv: String) -> TodoItem? {
+    public static func parse(csv: String) -> TodoItem? {
         let components = csv.components(separatedBy: ",")
         
         guard components.count >= 7 else {
@@ -158,7 +158,7 @@ extension TodoItem {
             changedAt: changedAt)
     }
     
-    var csv: String {
+    public var csv: String {
         var csvString = "\(id),\(text),"
         
         if importance != .normal {
@@ -187,7 +187,7 @@ extension TodoItem {
 
 
 extension TodoItem {
-    func copy(
+    public func copy(
         text: String? = nil,
         importance: Importance? = nil,
         deadline: Date? = nil,

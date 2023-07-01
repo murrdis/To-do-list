@@ -1,9 +1,9 @@
 import UIKit
 
-typealias HEX = String
+public typealias HEX = String
 
 extension UIColor {
-    var hex: HEX? {
+    public var hex: HEX? {
         guard let components = cgColor.components, components.count >= 3 else {
             return nil
         }
@@ -24,7 +24,7 @@ extension UIColor {
         return hexString
     }
     
-    convenience init?(hex: String){
+    public convenience init?(hex: String){
         var hexString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
         if hexString.hasPrefix("#") {
