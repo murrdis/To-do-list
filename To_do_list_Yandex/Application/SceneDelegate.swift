@@ -9,7 +9,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let navigationVC = UINavigationController(rootViewController: TodoItemViewController())
+        let navigationVC = UINavigationController(rootViewController: ViewController())
         window.rootViewController = navigationVC
         
         self.window = window

@@ -25,6 +25,7 @@ final class TodoItemDetailsView: UIStackView {
         setupConstraints()
     }
     
+    
     private func setupConstraints() {
         NSLayoutConstraint.activate(
             [

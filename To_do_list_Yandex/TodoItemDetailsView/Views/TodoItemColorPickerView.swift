@@ -1,21 +1,22 @@
 import UIKit
+import TodoListPackage
 
 class TodoItemColorPickerView: UIStackView {
     
-    private var color: String = (Colors.labelPrimary?.hex)!
+    private var color: HEX = (Colors.labelPrimary?.hex)!
     private var alphaComponent: CGFloat = 1.0
     
-    func getTaskColor() -> String {
+    func getTaskColor() -> HEX {
         return color
     }
     
-    func setTaskColor(color: String?) {
-        if (color != nil) && color != (Colors.labelPrimary?.hex)! {
-            self.color = color!
+    func setTaskColor(color: HEX) {
+        if color != (Colors.labelPrimary?.hex)! {
+            self.color = color
             colorSwitch.isOn = true
 
             colorButton.setTitle(color, for: .normal)
-            colorButton.setTitleColor(UIColor(hex: color!), for: .normal)
+            colorButton.setTitleColor(UIColor(hex: color), for: .normal)
         }
         else {
             colorSwitch.isOn = false
@@ -55,11 +56,11 @@ class TodoItemColorPickerView: UIStackView {
     @objc private func openColorPicker() {
         guard colorSwitch.isOn else { return }
         UIView.animate(withDuration: 0.5) {
-            self.ColorPickerView.isHidden.toggle()
+            self.colorPickerView.isHidden.toggle()
         }
     }
     
-    private lazy var ColorPickerView: UIStackView = {
+    private lazy var colorPickerView: UIStackView = {
         let bottomDivider = DividerView()
         let stack = UIStackView(arrangedSubviews: [
             DividerView(),
@@ -72,7 +73,6 @@ class TodoItemColorPickerView: UIStackView {
         stack.layoutMargins.top = 10
         stack.isHidden = true
         stack.setCustomSpacing(15, after: bottomDivider)
-        
         return stack
     }()
     
@@ -85,8 +85,6 @@ class TodoItemColorPickerView: UIStackView {
         
         let label = UILabel()
         label.text = "Яркость"
-        
-
         
         stackView.addArrangedSubview(label)
         stackView.addArrangedSubview(slider)
@@ -132,7 +130,7 @@ class TodoItemColorPickerView: UIStackView {
             colorButton.setTitle("", for: .normal)
             colorButton.setTitleColor(UIColor(hex: color), for: .normal)
             UIView.animate(withDuration: 0.5) {
-                self.ColorPickerView.isHidden = true
+                self.colorPickerView.isHidden = true
             }
         }
     }
@@ -178,7 +176,7 @@ class TodoItemColorPickerView: UIStackView {
         spacing = 10
         
         addArrangedSubview(hColorStack)
-        addArrangedSubview(ColorPickerView)
+        addArrangedSubview(colorPickerView)
         translatesAutoresizingMaskIntoConstraints = false
         colorPicker.delegate = self
         

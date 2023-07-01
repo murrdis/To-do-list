@@ -1,0 +1,6 @@
+framework module Pods_To_do_list_Yandex_To_do_list_YandexUITests {
+  umbrella header "Pods-To_do_list_Yandex-To_do_list_YandexUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

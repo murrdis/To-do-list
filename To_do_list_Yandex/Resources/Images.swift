@@ -5,7 +5,7 @@ struct Images {
     static let radioButtonHighPriority = UIImage(named: "radio_button_high_priority_24x24")
     static let radioButtonOff = UIImage(named: "radio_button_off_24x24")
     static let radioButtonOn = UIImage(named: "radio_button_on_24x24")
-    static let add = UIImage(named: "add")
+    static let add = UIImage(named: "add_large")
     static let calendar = UIImage(named: "calendar")
     static let chevron = UIImage(named: "chevron")
     static let priorityHigh = UIImage(named: "priority_high")
