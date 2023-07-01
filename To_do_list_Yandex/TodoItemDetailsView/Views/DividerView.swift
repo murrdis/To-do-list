@@ -7,6 +7,10 @@ final class DividerView: UIView {
         
         backgroundColor = Colors.supportSeparator
         translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            heightAnchor.constraint(equalToConstant: 0.5)
+        ])
     }
     
     required init?(coder: NSCoder) {

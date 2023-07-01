@@ -1,6 +1,6 @@
 import XCTest
 
-final class To_do_list_YandexUITestsLaunchTests: XCTestCase {
+final class TodolistYandexUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

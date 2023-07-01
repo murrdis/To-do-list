@@ -14,8 +14,8 @@
 		331AB6862A3859F500EFDD49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 331AB6852A3859F500EFDD49 /* Assets.xcassets */; };
 		331AB6892A3859F500EFDD49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 331AB6872A3859F500EFDD49 /* LaunchScreen.storyboard */; };
 		331AB6942A3859F600EFDD49 /* To_do_list_YandexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB6932A3859F600EFDD49 /* To_do_list_YandexTests.swift */; };
-		331AB69E2A3859F600EFDD49 /* To_do_list_YandexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB69D2A3859F600EFDD49 /* To_do_list_YandexUITests.swift */; };
-		331AB6A02A3859F600EFDD49 /* To_do_list_YandexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB69F2A3859F600EFDD49 /* To_do_list_YandexUITestsLaunchTests.swift */; };
+		331AB69E2A3859F600EFDD49 /* TodolistYandexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB69D2A3859F600EFDD49 /* TodolistYandexUITests.swift */; };
+		331AB6A02A3859F600EFDD49 /* TodolistYandexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB69F2A3859F600EFDD49 /* TodolistYandexUITestsLaunchTests.swift */; };
 		331AB6AD2A385BC800EFDD49 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB6AC2A385BC800EFDD49 /* TodoItem.swift */; };
 		331AB6AF2A38E50300EFDD49 /* FileCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB6AE2A38E50300EFDD49 /* FileCache.swift */; };
 		3345CCDC2A462D7800BBEC77 /* SpectrumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCDB2A462D7800BBEC77 /* SpectrumView.swift */; };
@@ -24,6 +24,8 @@
 		3345CCE52A466D6B00BBEC77 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCE42A466D6B00BBEC77 /* UIColorExtensions.swift */; };
 		3345CCE72A466DA700BBEC77 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCE62A466DA700BBEC77 /* CALayerExtensions.swift */; };
 		33673A0A2A4F1A4300B8C2C3 /* MyLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 33673A092A4F1A4300B8C2C3 /* MyLibrary */; };
+		33673A0D2A4F874200B8C2C3 /* TodoListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33673A0C2A4F874200B8C2C3 /* TodoListHeaderView.swift */; };
+		33673A0F2A4F9D7400B8C2C3 /* CustomTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33673A0E2A4F9D7400B8C2C3 /* CustomTransitionAnimator.swift */; };
 		33BD028F2A4C9D49009BF494 /* TodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BD028E2A4C9D49009BF494 /* TodoListTableViewCell.swift */; };
 		33BE54032A43698B00696222 /* TodoItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54022A43698B00696222 /* TodoItemDetailsViewController.swift */; };
 		33BE54062A4385A500696222 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54052A4385A500696222 /* Fonts.swift */; };
@@ -67,8 +69,8 @@
 		331AB68F2A3859F600EFDD49 /* To_do_list_YandexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = To_do_list_YandexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		331AB6932A3859F600EFDD49 /* To_do_list_YandexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = To_do_list_YandexTests.swift; sourceTree = "<group>"; };
 		331AB6992A3859F600EFDD49 /* To_do_list_YandexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = To_do_list_YandexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		331AB69D2A3859F600EFDD49 /* To_do_list_YandexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = To_do_list_YandexUITests.swift; sourceTree = "<group>"; };
-		331AB69F2A3859F600EFDD49 /* To_do_list_YandexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = To_do_list_YandexUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		331AB69D2A3859F600EFDD49 /* TodolistYandexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodolistYandexUITests.swift; sourceTree = "<group>"; };
+		331AB69F2A3859F600EFDD49 /* TodolistYandexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodolistYandexUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		331AB6AC2A385BC800EFDD49 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		331AB6AE2A38E50300EFDD49 /* FileCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCache.swift; sourceTree = "<group>"; };
 		3345CCDB2A462D7800BBEC77 /* SpectrumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,8 @@
 		3345CCE12A46313300BBEC77 /* TodoItemColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemColorPickerView.swift; sourceTree = "<group>"; };
 		3345CCE42A466D6B00BBEC77 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		3345CCE62A466DA700BBEC77 /* CALayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
+		33673A0C2A4F874200B8C2C3 /* TodoListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListHeaderView.swift; sourceTree = "<group>"; };
+		33673A0E2A4F9D7400B8C2C3 /* CustomTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTransitionAnimator.swift; sourceTree = "<group>"; };
 		33BD028E2A4C9D49009BF494 /* TodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableViewCell.swift; sourceTree = "<group>"; };
 		33BE54022A43698B00696222 /* TodoItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemDetailsViewController.swift; sourceTree = "<group>"; };
 		33BE54052A4385A500696222 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -190,8 +194,8 @@
 		331AB69C2A3859F600EFDD49 /* To_do_list_YandexUITests */ = {
 			isa = PBXGroup;
 			children = (
-				331AB69D2A3859F600EFDD49 /* To_do_list_YandexUITests.swift */,
-				331AB69F2A3859F600EFDD49 /* To_do_list_YandexUITestsLaunchTests.swift */,
+				331AB69D2A3859F600EFDD49 /* TodolistYandexUITests.swift */,
+				331AB69F2A3859F600EFDD49 /* TodolistYandexUITestsLaunchTests.swift */,
 			);
 			path = To_do_list_YandexUITests;
 			sourceTree = "<group>";
@@ -225,6 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				33BD028E2A4C9D49009BF494 /* TodoListTableViewCell.swift */,
+				33673A0E2A4F9D7400B8C2C3 /* CustomTransitionAnimator.swift */,
+				33673A0C2A4F874200B8C2C3 /* TodoListHeaderView.swift */,
 			);
 			path = TodoListView;
 			sourceTree = "<group>";
@@ -303,6 +309,7 @@
 				331AB6752A3859F100EFDD49 /* Sources */,
 				331AB6762A3859F100EFDD49 /* Frameworks */,
 				331AB6772A3859F100EFDD49 /* Resources */,
+				33673A0B2A4F275B00B8C2C3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -468,6 +475,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		33673A0B2A4F275B00B8C2C3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		84020F586525C11335F04239 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -516,8 +541,10 @@
 				3345CCDC2A462D7800BBEC77 /* SpectrumView.swift in Sources */,
 				331AB6AF2A38E50300EFDD49 /* FileCache.swift in Sources */,
 				331AB67F2A3859F100EFDD49 /* SceneDelegate.swift in Sources */,
+				33673A0F2A4F9D7400B8C2C3 /* CustomTransitionAnimator.swift in Sources */,
 				33BE541A2A44899200696222 /* TodoItemDetailsView.swift in Sources */,
 				33BE54032A43698B00696222 /* TodoItemDetailsViewController.swift in Sources */,
+				33673A0D2A4F874200B8C2C3 /* TodoListHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,8 +560,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				331AB69E2A3859F600EFDD49 /* To_do_list_YandexUITests.swift in Sources */,
-				331AB6A02A3859F600EFDD49 /* To_do_list_YandexUITestsLaunchTests.swift in Sources */,
+				331AB69E2A3859F600EFDD49 /* TodolistYandexUITests.swift in Sources */,
+				331AB6A02A3859F600EFDD49 /* TodolistYandexUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

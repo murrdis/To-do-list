@@ -21,7 +21,10 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "TodoListPackage",
-            dependencies: ["CocoaLumberjack"],
+            dependencies: [
+                .product(name: "CocoaLumberjack", package: "CocoaLumberjack"),
+                .product(name: "CocoaLumberjackSwift", package: "CocoaLumberjack")
+            ],
             path: "Sources/TodoListPackage"
             )
     ]

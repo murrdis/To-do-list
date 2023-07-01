@@ -3,8 +3,9 @@ import UIKit
 class TodoListTableViewCell: UITableViewCell {
     
     let divider = DividerView()
+    private let fileCache = FileCache.fileCacheObj
     
-    var todoItem = TodoItem(text: "")
+    var currItem = TodoItem(text: "")
     
     private lazy var chevronImageView: UIImageView = {
         let chevronImageView = UIImageView(image: Images.chevron)
@@ -93,20 +94,23 @@ class TodoListTableViewCell: UITableViewCell {
     }
     
     @objc private func isTodoItemDone() {
-        todoItem.done.toggle()
-        if todoItem.done {
-            radioButton.isSelected = true
-            taskLabel.textColor = Colors.labelTertiary
-            let attributedString = NSAttributedString(string: todoItem.text, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
-            taskLabel.attributedText = attributedString
-        } else {
-            radioButton.isSelected = false
-            taskLabel.attributedText = NSAttributedString(string: todoItem.text)
-            taskLabel.textColor = Colors.labelPrimary
-            if (todoItem.hexColor != nil) {
-                taskLabel.textColor = UIColor(hex: todoItem.hexColor!)
-            }
-        }
+//        let newItem = currItem.copy(done: !currItem.done)
+//        fileCache.addChangeTodoItem(newItem)
+//        currItem = newItem
+//        if currItem.done {
+//            radioButton.isSelected = true
+//            taskLabel.textColor = Colors.labelTertiary
+//            let attributedString = NSAttributedString(string: currItem.text, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
+//            taskLabel.attributedText = attributedString
+//        } else {
+//            radioButton.isSelected = false
+//            taskLabel.attributedText = NSAttributedString(string: currItem.text)
+//            taskLabel.textColor = Colors.labelPrimary
+//            if (currItem.hexColor != nil) {
+//                taskLabel.textColor = UIColor(hex: currItem.hexColor!)
+//            }
+//        }
+        
     }
     
 
@@ -147,38 +151,38 @@ class TodoListTableViewCell: UITableViewCell {
             divider.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 52),
             divider.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
             divider.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor),
-            divider.heightAnchor.constraint(equalToConstant: 0.5)
+            
         ])
     }
 
     
-    func configure(with TodoItem: TodoItem) {
-        todoItem = TodoItem
-        if TodoItem.importance == .important {
+    func configure(with todoItem: TodoItem) {
+        currItem = todoItem
+        if todoItem.importance == .important {
             radioButton.setImage(Images.radioButtonHighPriority, for: .normal)
             highPriorityImageView.isHidden = false
         }
         
-        taskLabel.text = TodoItem.text
+        taskLabel.text = todoItem.text
         
-        if (TodoItem.hexColor != nil) {
-            taskLabel.textColor = UIColor(hex: TodoItem.hexColor!)
+        if (todoItem.hexColor != nil) {
+            taskLabel.textColor = UIColor(hex: todoItem.hexColor!)
         }
         
-        if TodoItem.deadline != nil {
+        if todoItem.deadline != nil {
             deadlineStackView.isHidden = false
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "d MMMM"
             dateFormatter.locale = Locale(identifier: "ru")
 
-            deadlineLabel.text = dateFormatter.string(from: TodoItem.deadline!)
+            deadlineLabel.text = dateFormatter.string(from: todoItem.deadline!)
         }
         
-        if TodoItem.done {
+        if todoItem.done {
             radioButton.isSelected = true
             taskLabel.textColor = Colors.labelTertiary
-            let attributedString = NSAttributedString(string: TodoItem.text, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
+            let attributedString = NSAttributedString(string: todoItem.text, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
             taskLabel.attributedText = attributedString
         }
         

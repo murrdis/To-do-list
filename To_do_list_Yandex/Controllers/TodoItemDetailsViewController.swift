@@ -1,10 +1,20 @@
 import UIKit
 
+protocol TodoItemDetailsViewControllerDelegate: AnyObject {
+    func didUpdateData()
+}
+
+
 class TodoItemDetailsViewController: UIViewController {
+    
+    weak var delegate: TodoItemDetailsViewControllerDelegate?
+    
     private var taskId: String? = nil
     private let fileCache = FileCache.fileCacheObj
     
-
+    var currentItem: TodoItem?
+    
+    private var saveButton: UIBarButtonItem?
 
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -66,21 +76,31 @@ class TodoItemDetailsViewController: UIViewController {
     }
     
     private func loadTodoItem() {
-        guard let todoItem = loadTodoItemFromFile()
+        guard let currentItem
         else {
             enableNavBarSaveButton(isEnabled: false)
             return
         }
-        taskId = todoItem.id
-        textView.setTaskName(name: todoItem.text)
-        detailsView.importanceView.setTaskImportance(importance: todoItem.importance)
-        detailsView.deadlineView.setTaskDeadline(deadline: todoItem.deadline)
-        detailsView.colorPicker.setTaskColor(color:  todoItem.hexColor!)
+        
+        textView.setTaskName(name: currentItem.text)
+        detailsView.importanceView.setTaskImportance(importance: currentItem.importance)
+        detailsView.deadlineView.setTaskDeadline(deadline: currentItem.deadline)
+        detailsView.colorPicker.setTaskColor(color:  (currentItem.hexColor ?? Colors.labelPrimary?.hex!)!)
         enableNavBarSaveButton(isEnabled: true)
         deleteButton.isEnabled = true
     }
 
     private func setupNavigationBar() {
+        let navBar = UINavigationBar(frame: CGRect(x: 0,
+                                                   y: 0,
+                                                   width: view.bounds.size.width,
+                                                   height: UINavigationController().navigationBar.frame.size.height))
+
+        navBar.barTintColor = Colors.backPrimary
+        navBar.isTranslucent = false
+        
+        let navItem = UINavigationItem(title: "Дело")
+        
         let navigationBarAppearance = UINavigationBarAppearance()
         navigationBarAppearance.titleTextAttributes = [NSAttributedString.Key.font: Fonts.headline]
         UINavigationBar.appearance().standardAppearance = navigationBarAppearance
@@ -90,10 +110,10 @@ class TodoItemDetailsViewController: UIViewController {
         let cancelButton = UIBarButtonItem(title: "Отменить",
                                            style: .plain,
                                            target: self,
-                                           action: nil)
+                                           action: #selector(back))
         cancelButton.setTitleTextAttributes([NSAttributedString.Key.font: Fonts.body], for: .normal)
         cancelButton.setTitleTextAttributes([NSAttributedString.Key.font: Fonts.body], for: .highlighted)
-        navigationItem.leftBarButtonItem = cancelButton
+        navItem.leftBarButtonItem = cancelButton
 
         let saveButton = UIBarButtonItem(title: "Сохранить",
                                          style: .plain,
@@ -102,7 +122,12 @@ class TodoItemDetailsViewController: UIViewController {
         saveButton.setTitleTextAttributes([NSAttributedString.Key.font: Fonts.headline], for: .normal)
         saveButton.setTitleTextAttributes([NSAttributedString.Key.font: Fonts.headline], for: .highlighted)
         saveButton.setTitleTextAttributes([NSAttributedString.Key.font: Fonts.headline], for: .disabled)
-        navigationItem.rightBarButtonItem = saveButton
+        navItem.rightBarButtonItem = saveButton
+        self.saveButton = saveButton
+        
+        navBar.items = [navItem]
+        
+        self.view.addSubview(navBar)
     }
     
     private func setupColors() {
@@ -129,7 +154,7 @@ class TodoItemDetailsViewController: UIViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate(
             [
-                scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+                scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: UINavigationController().navigationBar.frame.size.height),
                 scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
                 scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
                 scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
@@ -157,30 +182,41 @@ class TodoItemDetailsViewController: UIViewController {
         else { return }
         let deadline = detailsView.deadlineView.getTaskDeadline()
         let color = detailsView.colorPicker.getTaskColor()
-        if (taskId != nil) {
-            let todoItem = TodoItem(id: taskId!, text: text, importance: importance, deadline: deadline, hexColor: color)
-            fileCache.addTodoItem(todoItem)
+        
+        let todoItem: TodoItem
+        
+        if let curItem = currentItem {
+            todoItem = TodoItem(id: curItem.id,
+                                    text: text,
+                                    importance: importance,
+                                    deadline: deadline,
+                                    done: curItem.done,
+                                    createdAt: curItem.createdAt,
+                                    changedAt: .now,
+                                    hexColor: color)
         }
         else {
-            let todoItem = TodoItem(text: text, importance: importance, deadline: deadline, hexColor: color)
-            fileCache.addTodoItem(todoItem)
+            todoItem = TodoItem(text: text, importance: importance, deadline: deadline, hexColor: color)
         }
-        
-        fileCache.saveJsonToFile("TodoItems")
+        fileCache.addChangeTodoItem(todoItem)
+        delegate?.didUpdateData()
+        dismiss(animated: true)
     }
     
     @objc private func deleteTodoItem() {
-        guard let id = taskId
+        guard let id = currentItem?.id
         else { return }
         
         fileCache.removeTodoItem(withID: id)
-        fileCache.saveJsonToFile("TodoItems")
+        
         
         textView.setTaskName(name: "")
         detailsView.importanceView.setTaskImportance(importance: .important)
         detailsView.deadlineView.setTaskDeadline(deadline: nil)
         detailsView.colorPicker.setTaskColor(color: (Colors.labelPrimary?.hex!)!)
         enableNavBarSaveButton(isEnabled: false)
+        delegate?.didUpdateData()
+        dismiss(animated: true)
     }
     
     private func loadTodoItemFromFile() -> TodoItem? {
@@ -190,7 +226,7 @@ class TodoItemDetailsViewController: UIViewController {
     }
     
     func enableNavBarSaveButton(isEnabled: Bool) {
-        self.navigationItem.rightBarButtonItem?.isEnabled = isEnabled
+        saveButton?.isEnabled = isEnabled
     }
     
     @objc private func hideKeyboard() {
@@ -221,6 +257,11 @@ class TodoItemDetailsViewController: UIViewController {
         let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         scrollView.contentInset = contentInsets
     }
+    
+    @objc private func back() {
+        delegate?.didUpdateData()
+        dismiss(animated: true)
+    }
 
 }
 
@@ -238,9 +279,12 @@ extension TodoItemDetailsViewController: UITextViewDelegate {
         if textView.text == "" {
             textView.text = "Что надо сделать?"
             textView.textColor = Colors.labelTertiary
+            enableNavBarSaveButton(isEnabled: false)
+        } else {
+            textView.resignFirstResponder()
+            enableNavBarSaveButton(isEnabled: true)
         }
-        textView.resignFirstResponder()
-        enableNavBarSaveButton(isEnabled: true)
+
     }
 
 }

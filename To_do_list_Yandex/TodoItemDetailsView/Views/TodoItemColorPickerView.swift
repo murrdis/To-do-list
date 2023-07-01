@@ -55,11 +55,11 @@ class TodoItemColorPickerView: UIStackView {
     @objc private func openColorPicker() {
         guard colorSwitch.isOn else { return }
         UIView.animate(withDuration: 0.5) {
-            self.ColorPickerView.isHidden.toggle()
+            self.colorPickerView.isHidden.toggle()
         }
     }
     
-    private lazy var ColorPickerView: UIStackView = {
+    private lazy var colorPickerView: UIStackView = {
         let bottomDivider = DividerView()
         let stack = UIStackView(arrangedSubviews: [
             DividerView(),
@@ -72,7 +72,6 @@ class TodoItemColorPickerView: UIStackView {
         stack.layoutMargins.top = 10
         stack.isHidden = true
         stack.setCustomSpacing(15, after: bottomDivider)
-        
         return stack
     }()
     
@@ -130,7 +129,7 @@ class TodoItemColorPickerView: UIStackView {
             colorButton.setTitle("", for: .normal)
             colorButton.setTitleColor(UIColor(hex: color), for: .normal)
             UIView.animate(withDuration: 0.5) {
-                self.ColorPickerView.isHidden = true
+                self.colorPickerView.isHidden = true
             }
         }
     }
@@ -176,7 +175,7 @@ class TodoItemColorPickerView: UIStackView {
         spacing = 10
         
         addArrangedSubview(hColorStack)
-        addArrangedSubview(ColorPickerView)
+        addArrangedSubview(colorPickerView)
         translatesAutoresizingMaskIntoConstraints = false
         colorPicker.delegate = self
         

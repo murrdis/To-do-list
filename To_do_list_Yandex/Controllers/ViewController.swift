@@ -10,20 +10,25 @@ class ViewController: UIViewController {
 //        }
 //    }
     
+    
+    private var itemsWithoutDone = [
+        TodoItem(text: "Buy groceries", importance: .important),
+        TodoItem(text: "Read a book", deadline: Date())
+    ]
+    
+    private var itemsWithDone = [
+        TodoItem(text: "Buy groceries", importance: .important),
+        TodoItem(text: "Read a book", deadline: Date())
+    ]
+    
     private var items = [
         TodoItem(text: "Buy groceries", importance: .important),
-        TodoItem(text: "Read a book", deadline: Date()),
-        TodoItem(text: "Buy groceries", importance: .important),
-        TodoItem(text: "Buy groceries", importance: .normal, done: true),
-        TodoItem(text: "Buy groceries", importance: .important, hexColor: UIColor(red: 0, green: 250, blue: 0, alpha: 1.0).hex),
-        TodoItem(text: "Buy groceries", importance: .important),
-        TodoItem(text: "Buy groceries", importance: .important),
-        TodoItem(text: "Buy groceries", importance: .important),
-        TodoItem(text: "Buy groceries", importance: .important),
-        TodoItem(text: "Buy groceries", importance: .important),
-        TodoItem(text: "Buy groceries", importance: .important),
-        TodoItem(text: "Buy groceries", importance: .important),
+        TodoItem(text: "Read a book", deadline: Date())
     ]
+    
+    private var shouldShowDoneTasks = false
+    
+    private lazy var headerView = TodoListHeaderView()
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -61,10 +66,11 @@ class ViewController: UIViewController {
 
     
     
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
+    private lazy var tableView: ContentSizedTableView = {
+        let tableView = ContentSizedTableView()
         tableView.dataSource = self
         tableView.delegate = self
+        headerView.delegate = self
         tableView.estimatedRowHeight = 56
         tableView.layer.cornerRadius = 16
         tableView.register(
@@ -92,7 +98,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        fileCache.loadJsonFromFile("TodoItems")
+        itemsWithDone = fileCache.todoItems
+        itemsWithoutDone = itemsWithDone.filter { $0.done == false }
+        items = itemsWithoutDone
+        
         setupNavBar()
         setup()
 
@@ -118,10 +129,11 @@ class ViewController: UIViewController {
     }
     
     private func setup() {
-        view.addSubview(tableView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(headerView)
+        scrollView.addSubview(tableView)
         view.addSubview(addButton)
-//        scrollView.addSubview(mainStackView)
-//        scrollView.addSubview(addButton)
+        headerView.title = "Выполнено — \(itemsWithDone.count-itemsWithoutDone.count)"
         setupConstraints()
         setupColors()
     }
@@ -134,28 +146,36 @@ class ViewController: UIViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate(
             [
-                tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-                tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-                tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+                scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ]
+        )
+        NSLayoutConstraint.activate(
+            [
+                headerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+                headerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 32),
+                headerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -32)
+            ]
+        )
+        NSLayoutConstraint.activate(
+            [
+                tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+                tableView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+                tableView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
+                tableView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+                tableView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -32)
             ]
         )
         NSLayoutConstraint.activate(
             [
                 addButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-                addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
-                
+                addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
             ]
         )
         
-        //        NSLayoutConstraint.activate(
-        //            [
-//                scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//                scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-//                scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-//                scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-//            ]
-//        )
+
 //
 //        NSLayoutConstraint.activate([
 //            mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor,
@@ -173,7 +193,20 @@ class ViewController: UIViewController {
     
     @objc
     private func didTapAddButton(_ sender: UIButton) {
-        
+        let detailsVC = TodoItemDetailsViewController()
+        detailsVC.delegate = self
+        self.present(detailsVC, animated: true)
+    }
+    
+    @objc
+    private func showDoneTasks() {
+        shouldShowDoneTasks.toggle()
+        if shouldShowDoneTasks {
+            items = itemsWithDone
+        } else {
+            items = itemsWithoutDone
+        }
+        tableView.reloadData()
     }
     
 }
@@ -191,6 +224,13 @@ final class ContentSizedTableView: UITableView {
     }
 }
 
+extension ViewController: TodoListHeaderViewDelegate {
+    func todoListHeaderView(_ view: TodoListHeaderView, didSelectShowButton isSelected: Bool) {
+        showDoneTasks()
+    }
+    
+}
+
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count + 1
@@ -205,68 +245,131 @@ extension ViewController: UITableViewDataSource {
         else {
             return TodoListTableViewCell()
         }
-        
+        let newCell = TodoListTableViewCell()
         if indexPath.row == items.count {
-            cell.setLastCell()
-            return cell
+            newCell.setLastCell()
+            return newCell
         }
         
-        cell.configure(with: items[indexPath.row])
+        newCell.configure(with: items[indexPath.row])
         
-        return cell
+        return newCell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == items.count {
+            let detailsVC = TodoItemDetailsViewController()
+            detailsVC.delegate = self
+            self.present(detailsVC, animated: true)
+        } else {
+            let detailsVC = TodoItemDetailsViewController()
+            detailsVC.delegate = self
+            detailsVC.currentItem = items[indexPath.row]
+            self.present(detailsVC, animated: true)
+        }
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard !items.isEmpty else {
+            return nil
+        }
+
+        let action = UIContextualAction(
+            style: .normal,
+            title: nil,
+            handler: { [weak self] (_, _, completionHandler) in
+                
+                let newItem = self?.items[indexPath.row].copy(done: true)
+                self?.fileCache.addChangeTodoItem(newItem!)
+                self?.fileCache.loadJsonFromFile("TodoItems")
+                
+                self?.itemsWithDone = self?.fileCache.todoItems ?? []
+                self?.itemsWithoutDone = self?.itemsWithDone.filter { $0.done == false } ?? []
+                if let shouldShowDoneTasks = self?.shouldShowDoneTasks {
+                    if shouldShowDoneTasks {
+                        self?.items = self?.itemsWithDone ?? []
+                    } else {
+                        self?.items = self?.itemsWithoutDone ?? []
+                    }
+                }
+                
+                tableView.reloadData()
+                self?.headerView.title = "Выполнено - \((self?.itemsWithDone.count)!-(self?.itemsWithoutDone.count)!)"
+
+                
+                completionHandler(true)
+            }
+        )
+
+        action.image = UIImage(systemName: "checkmark.circle.fill")
+        action.backgroundColor = Colors.colorGreen
+
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard !items.isEmpty else {
+            return nil
+        }
+
+        let openDetailsAction = UIContextualAction(
+            style: .normal,
+            title: nil,
+            handler: { [weak self] (_, _, completionHandler) in
+
+            }
+        )
+
+        openDetailsAction.image = UIImage(systemName: "info.circle.fill")
+        openDetailsAction.backgroundColor = Colors.colorGrayLight
+
+        let deleteAction = UIContextualAction(
+            style: .normal,
+            title: nil,
+            handler: { [weak self] (_, _, completionHandler) in
+                
+                self?.fileCache.removeTodoItem(withID: (self?.items[indexPath.row].id)!)
+                self?.fileCache.loadJsonFromFile("TodoItems")
+                self?.itemsWithDone = self?.fileCache.todoItems ?? []
+                self?.itemsWithoutDone = self?.itemsWithDone.filter { $0.done == false } ?? []
+                
+                if let shouldShowDoneTasks = self?.shouldShowDoneTasks {
+                    if shouldShowDoneTasks {
+                        self?.items = self?.itemsWithDone ?? []
+                    } else {
+                        self?.items = self?.itemsWithoutDone ?? []
+                    }
+                }
+                tableView.reloadData()
+                self?.headerView.title = "Выполнено - \((self?.itemsWithDone.count)!-(self?.itemsWithoutDone.count)!)"
+                
+                completionHandler(true)
+            }
+        )
+
+        deleteAction.image = UIImage(systemName: "trash.fill")
+        deleteAction.backgroundColor = Colors.colorRed
+
+        return UISwipeActionsConfiguration(actions: [deleteAction, openDetailsAction])
+    }
 }
 
-//extension ViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        guard !items.isEmpty else {
-//            return nil
-//        }
-//
-//        let action = UIContextualAction(
-//            style: .normal,
-//            title: nil,
-//            handler: { [weak self] (_, _, completionHandler) in
-//
-//            }
-//        )
-//
-//        action.image = UIImage(systemName: "checkmark.circle.fill")
-//        action.backgroundColor = DSColor.colorGreen.color
-//
-//        return UISwipeActionsConfiguration(actions: [action])
-//    }
-//
-//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        guard !items.isEmpty else {
-//            return nil
-//        }
-//
-//        let openDetailsAction = UIContextualAction(
-//            style: .normal,
-//            title: nil,
-//            handler: { [weak self] (_, _, completionHandler) in
-//
-//            }
-//        )
-//
-//        openDetailsAction.image = UIImage(systemName: "info.circle.fill")
-//        openDetailsAction.backgroundColor = DSColor.colorGrayLight.color
-//
-//        let deleteAction = UIContextualAction(
-//            style: .normal,
-//            title: nil,
-//            handler: { [weak self] (_, _, completionHandler) in
-//
-//            }
-//        )
-//
-//        deleteAction.image = UIImage(systemName: "trash.fill")
-//        deleteAction.backgroundColor = DSColor.colorRed.color
-//
-//        return UISwipeActionsConfiguration(actions: [deleteAction, openDetailsAction])
-//    }
-//}
+
+extension ViewController: TodoItemDetailsViewControllerDelegate {
+    func didUpdateData() {
+        fileCache.loadJsonFromFile("TodoItems")
+        itemsWithDone = fileCache.todoItems
+        itemsWithoutDone = itemsWithDone.filter { $0.done == false }
+        if shouldShowDoneTasks {
+            items = itemsWithDone
+        } else {
+            items = itemsWithoutDone
+        }
+        tableView.reloadData()
+    }
+}
+

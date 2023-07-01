@@ -1,6 +1,6 @@
 import XCTest
 
-final class To_do_list_YandexUITests: XCTestCase {
+final class TodolistYandexUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

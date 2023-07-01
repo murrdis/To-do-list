@@ -5,7 +5,7 @@ struct TodoItem {
     let text: String
     let importance: Importance
     let deadline: Date?
-    var done: Bool
+    let done: Bool
     let createdAt: Date
     let changedAt: Date?
     let hexColor: HEX?
@@ -16,7 +16,14 @@ struct TodoItem {
         case important
     }
     
-    init(id: String = UUID().uuidString, text: String, importance: Importance = .normal, deadline: Date? = nil, done: Bool = false, createdAt: Date = Date.now, changedAt: Date? = nil, hexColor: HEX? = nil) {
+    init(id: String = UUID().uuidString,
+         text: String,
+         importance: Importance = .normal,
+         deadline: Date? = nil,
+         done: Bool = false,
+         createdAt: Date = Date.now,
+         changedAt: Date? = nil,
+         hexColor: HEX? = nil) {
             self.id = id
             self.text = text
             self.importance = importance
@@ -130,9 +137,9 @@ extension TodoItem {
         
         var text = components[1]
         
-        for i in 1..<components.count-5 {
-            text.append(components[i])
-            if i != components.count-6 {
+        for comp in 1..<components.count-5 {
+            text.append(components[comp])
+            if comp != components.count-6 {
                 text.append(",")
             }
         }
@@ -175,5 +182,29 @@ extension TodoItem {
         }
         
         return csvString
+    }
+}
+
+
+extension TodoItem {
+    func copy(
+        text: String? = nil,
+        importance: Importance? = nil,
+        deadline: Date? = nil,
+        done: Bool? = nil,
+        createdAt: Date? = nil,
+        changedAt: Date? = nil,
+        hexColor: HEX? = nil
+    ) -> TodoItem {
+        return TodoItem(
+            id: id,
+            text: text ?? self.text,
+            importance: importance ?? self.importance,
+            deadline: deadline ?? self.deadline,
+            done: done ?? self.done,
+            createdAt: createdAt ?? self.createdAt,
+            changedAt: changedAt ?? self.changedAt,
+            hexColor: hexColor ?? self.hexColor
+        )
     }
 }
