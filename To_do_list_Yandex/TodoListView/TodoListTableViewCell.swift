@@ -30,6 +30,7 @@ class TodoListTableViewCell: UITableViewCell {
                 deadlineStackView
             ])
         deadlineStackView.isHidden = true
+        vStackView.alignment = .leading
         vStackView.axis = .vertical
         vStackView.translatesAutoresizingMaskIntoConstraints = false
         return vStackView
@@ -42,7 +43,8 @@ class TodoListTableViewCell: UITableViewCell {
                 taskLabel
             ])
         highPriorityImageView.isHidden = true
-        stackView.alignment = .center
+        stackView.axis = .horizontal
+        
         stackView.distribution = .equalSpacing
         stackView.spacing = 2
         stackView.translatesAutoresizingMaskIntoConstraints = false

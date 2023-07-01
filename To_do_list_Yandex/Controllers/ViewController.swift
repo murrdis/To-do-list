@@ -175,21 +175,6 @@ class ViewController: UIViewController {
                 addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
             ]
         )
-        
-
-//
-//        NSLayoutConstraint.activate([
-//            mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor,
-//                                                  constant: 16),
-//            mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-//            mainStackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor,
-//                                                    constant: -16),
-//            mainStackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor,
-//                                                   constant: 16),
-//            mainStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -32)
-//        ])
-//
-
     }
     
     @objc
