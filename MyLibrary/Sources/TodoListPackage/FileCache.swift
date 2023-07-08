@@ -6,6 +6,10 @@ public class FileCache {
     
     public static let fileCacheObj = FileCache()
     
+    public func set(items: [TodoItem]) {
+        todoItems = items
+    }
+    
     public func addChangeTodoItem(_ item: TodoItem) {
         if let existingItemIndex = todoItems.firstIndex(where: { $0.id == item.id }) {
             todoItems[existingItemIndex] = item
@@ -18,7 +22,7 @@ public class FileCache {
     public func removeTodoItem(withID id: String) {
         todoItems.removeAll { $0.id == id }
         saveJsonToFile("TodoItems")
-    }    
+    }
     
     public func saveJsonToFile(_ fileName: String) {
         

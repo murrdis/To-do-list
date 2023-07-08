@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 public struct TodoItem {
     public let id: String
@@ -6,32 +7,34 @@ public struct TodoItem {
     public let importance: Importance
     public let deadline: Date?
     public let done: Bool
-    public let createdAt: Date
-    public let changedAt: Date?
-    public let hexColor: HEX?
+    public let created_at: Date
+    public let changed_at: Date?
+    public let color: HEX?
+    public let last_updated_by: String
     
     public enum Importance: String {
-        case notImportant
-        case normal
+        case low
+        case basic
         case important
     }
     
     public init(id: String = UUID().uuidString,
          text: String,
-         importance: Importance = .normal,
+         importance: Importance = .basic,
          deadline: Date? = nil,
          done: Bool = false,
-         createdAt: Date = Date(),
-         changedAt: Date? = nil,
-         hexColor: HEX? = nil) {
+         created_at: Date = Date(),
+         changed_at: Date? = nil,
+         color: HEX? = nil) {
             self.id = id
             self.text = text
             self.importance = importance
             self.deadline = deadline
             self.done = done
-            self.createdAt = createdAt
-            self.changedAt = changedAt
-            self.hexColor = hexColor
+            self.created_at = created_at
+            self.changed_at = changed_at
+            self.color = color
+            self.last_updated_by = UIDevice.current.identifierForVendor?.uuidString ?? ""
         }
 }
 
@@ -41,7 +44,7 @@ extension TodoItem {
         guard let dict = json as? [String: Any],
               let text = dict["text"] as? String,
               let done = dict["done"] as? Bool,
-              let createdAtTimestamp = dict["createdAt"] as? TimeInterval
+              let createdAtTimestamp = dict["created_at"] as? TimeInterval
         else {
             return nil
         }
@@ -49,17 +52,17 @@ extension TodoItem {
         let id = dict["id"] as? String ?? UUID().uuidString
         
         let importanceString = dict["importance"] as? String
-        let importance = Importance(rawValue: importanceString ?? Importance.normal.rawValue) ?? .normal
+        let importance = Importance(rawValue: importanceString ?? Importance.basic.rawValue) ?? .basic
         
         let deadlineTimestamp = dict["deadline"] as? TimeInterval
         let deadline = deadlineTimestamp != nil ? Date(timeIntervalSince1970: deadlineTimestamp!) : nil
         
-        let createdAt = Date(timeIntervalSince1970: createdAtTimestamp)
+        let created_at = Date(timeIntervalSince1970: createdAtTimestamp)
         
-        let changedAtTimestamp = dict["changedAt"] as? TimeInterval
-        let changedAt = changedAtTimestamp != nil ? Date(timeIntervalSince1970: changedAtTimestamp!) : nil
+        let changedAtTimestamp = dict["changed_at"] as? TimeInterval
+        let changed_at = changedAtTimestamp != nil ? Date(timeIntervalSince1970: changedAtTimestamp!) : nil
         
-        let hexColor = dict["hexColor"] as? HEX
+        let color = dict["color"] as? HEX
         
         return TodoItem(
             id: id,
@@ -67,9 +70,9 @@ extension TodoItem {
             importance: importance,
             deadline: deadline,
             done: done,
-            createdAt: createdAt,
-            changedAt: changedAt,
-            hexColor: hexColor
+            created_at: created_at,
+            changed_at: changed_at,
+            color: color
         )
     }
     
@@ -78,10 +81,10 @@ extension TodoItem {
             "id": id,
             "text": text,
             "done": done,
-            "createdAt": createdAt.timeIntervalSince1970
+            "created_at": created_at.timeIntervalSince1970
         ]
         
-        if importance != .normal {
+        if importance != .basic {
             dict["importance"] = importance.rawValue
         }
         
@@ -89,12 +92,12 @@ extension TodoItem {
             dict["deadline"] = theDeadline.timeIntervalSince1970
         }
         
-        if let theModificationDate = changedAt {
-            dict["changedAt"] = theModificationDate.timeIntervalSince1970
+        if let theModificationDate = changed_at {
+            dict["changed_at"] = theModificationDate.timeIntervalSince1970
         }
         
-        if let hexColor = hexColor {
-            dict["hexColor"] = hexColor
+        if let color = color {
+            dict["color"] = color
         }
         
         return dict
@@ -133,7 +136,7 @@ extension TodoItem {
             deadline = (timeInterval != nil) ? Date(timeIntervalSince1970: timeInterval!) : nil
         }
         
-        let importance: Importance = components[components.count-5].isEmpty ? .normal : Importance(rawValue: components[components.count-5]) ?? .normal
+        let importance: Importance = components[components.count-5].isEmpty ? .basic : Importance(rawValue: components[components.count-5]) ?? .basic
         
         var text = components[1]
         
@@ -154,14 +157,14 @@ extension TodoItem {
             importance: importance,
             deadline: deadline,
             done: isCompleted,
-            createdAt: createdAt!,
-            changedAt: changedAt)
+            created_at: createdAt!,
+            changed_at: changedAt)
     }
     
     public var csv: String {
         var csvString = "\(id),\(text),"
         
-        if importance != .normal {
+        if importance != .basic {
             csvString += "\(importance.rawValue),"
         } else {
             csvString += ","
@@ -174,9 +177,9 @@ extension TodoItem {
             csvString += ","
         }
         
-        csvString += "\(done),\(createdAt.timeIntervalSince1970),"
+        csvString += "\(done),\(created_at.timeIntervalSince1970),"
         
-        if let theModificationDate = changedAt {
+        if let theModificationDate = changed_at {
             let modificationTimestamp = theModificationDate.timeIntervalSince1970
             csvString += "\(modificationTimestamp)"
         }
@@ -194,7 +197,7 @@ extension TodoItem {
         done: Bool? = nil,
         createdAt: Date? = nil,
         changedAt: Date? = nil,
-        hexColor: HEX? = nil
+        color: HEX? = nil
     ) -> TodoItem {
         return TodoItem(
             id: id,
@@ -202,9 +205,9 @@ extension TodoItem {
             importance: importance ?? self.importance,
             deadline: deadline ?? self.deadline,
             done: done ?? self.done,
-            createdAt: createdAt ?? self.createdAt,
-            changedAt: changedAt ?? self.changedAt,
-            hexColor: hexColor ?? self.hexColor
+            created_at: createdAt ?? self.created_at,
+            changed_at: changedAt ?? self.changed_at,
+            color: color ?? self.color
         )
     }
 }

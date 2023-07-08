@@ -86,7 +86,7 @@ class TodoItemDetailsViewController: UIViewController {
         textView.setTaskName(name: currentItem.text)
         detailsView.importanceView.setTaskImportance(importance: currentItem.importance)
         detailsView.deadlineView.setTaskDeadline(deadline: currentItem.deadline)
-        detailsView.colorPicker.setTaskColor(color:  (currentItem.hexColor ?? Colors.labelPrimary?.hex!)!)
+        detailsView.colorPicker.setTaskColor(color:  (currentItem.color ?? Colors.labelPrimary?.hex!)!)
         enableNavBarSaveButton(isEnabled: true)
         deleteButton.isEnabled = true
     }
@@ -192,12 +192,12 @@ class TodoItemDetailsViewController: UIViewController {
                                     importance: importance,
                                     deadline: deadline,
                                     done: curItem.done,
-                                    createdAt: curItem.createdAt,
-                                    changedAt: .now,
-                                    hexColor: color)
+                                    created_at: curItem.created_at,
+                                    changed_at: .now,
+                                    color: color)
         }
         else {
-            todoItem = TodoItem(text: text, importance: importance, deadline: deadline, hexColor: color)
+            todoItem = TodoItem(text: text, importance: importance, deadline: deadline, color: color)
         }
         fileCache.addChangeTodoItem(todoItem)
         delegate?.didUpdateData()
@@ -222,6 +222,8 @@ class TodoItemDetailsViewController: UIViewController {
     
     private func loadTodoItemFromFile() -> TodoItem? {
         fileCache.loadJsonFromFile("TodoItems")
+        
+        
         guard fileCache.todoItems.count > 0 else { return nil }
         return fileCache.todoItems[0]
     }
