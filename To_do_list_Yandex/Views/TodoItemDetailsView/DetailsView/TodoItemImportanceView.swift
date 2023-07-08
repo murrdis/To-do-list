@@ -45,18 +45,18 @@ final class TodoItemImportanceView: UIStackView {
     
     func getTaskImportance() -> TodoItem.Importance? {
         if importanceControl.selectedSegmentIndex == 0 {
-            return TodoItem.Importance.notImportant
+            return TodoItem.Importance.low
         } else if importanceControl.selectedSegmentIndex == 1 {
-            return TodoItem.Importance.normal
+            return TodoItem.Importance.basic
         } else {
             return TodoItem.Importance.important
         }
     }
     
     func setTaskImportance(importance: TodoItem.Importance) {
-        if importance == TodoItem.Importance.notImportant {
+        if importance == TodoItem.Importance.low {
             importanceControl.selectedSegmentIndex = 0
-        } else if importance == TodoItem.Importance.normal {
+        } else if importance == TodoItem.Importance.basic {
             importanceControl.selectedSegmentIndex = 1
         } else {
             importanceControl.selectedSegmentIndex = 2

@@ -5,12 +5,6 @@ import TodoListPackage
 class ViewController: UIViewController {
     
     let fileCache = FileCache.fileCacheObj
-//    private var items: [TodoItem] = [] {
-//        didSet {
-//            tableView.reloadData()
-//        }
-//    }
-    
     
     private var itemsWithoutDone = [
         TodoItem(text: "Buy groceries", importance: .important),
@@ -66,7 +60,6 @@ class ViewController: UIViewController {
     }()
 
     
-    
     private lazy var tableView: ContentSizedTableView = {
         let tableView = ContentSizedTableView()
         tableView.dataSource = self
@@ -101,6 +94,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         fileCache.loadJsonFromFile("TodoItems")
+        
         itemsWithDone = fileCache.todoItems
         itemsWithoutDone = itemsWithDone.filter { $0.done == false }
         items = itemsWithoutDone
@@ -320,6 +314,7 @@ extension ViewController: UITableViewDelegate {
                 
                 self?.fileCache.removeTodoItem(withID: (self?.items[indexPath.row].id)!)
                 self?.fileCache.loadJsonFromFile("TodoItems")
+                
                 self?.itemsWithDone = self?.fileCache.todoItems ?? []
                 self?.itemsWithoutDone = self?.itemsWithDone.filter { $0.done == false } ?? []
                 
@@ -348,6 +343,7 @@ extension ViewController: UITableViewDelegate {
 extension ViewController: TodoItemDetailsViewControllerDelegate {
     func didUpdateData() {
         fileCache.loadJsonFromFile("TodoItems")
+        
         itemsWithDone = fileCache.todoItems
         itemsWithoutDone = itemsWithDone.filter { $0.done == false }
         if shouldShowDoneTasks {

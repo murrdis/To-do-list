@@ -19,10 +19,10 @@
 		3345CCDC2A462D7800BBEC77 /* SpectrumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCDB2A462D7800BBEC77 /* SpectrumView.swift */; };
 		3345CCE02A462EB400BBEC77 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCDF2A462EB400BBEC77 /* ColorPicker.swift */; };
 		3345CCE22A46313300BBEC77 /* TodoItemColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCE12A46313300BBEC77 /* TodoItemColorPickerView.swift */; };
-		3345CCE72A466DA700BBEC77 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345CCE62A466DA700BBEC77 /* CALayerExtensions.swift */; };
+		3360AC5B2A58D68600222DB7 /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3360AC5A2A58D68600222DB7 /* URLSessionExtension.swift */; };
+		3360AC5D2A58D6A400222DB7 /* DefaultNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3360AC5C2A58D6A400222DB7 /* DefaultNetworkingService.swift */; };
 		33673A0A2A4F1A4300B8C2C3 /* MyLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 33673A092A4F1A4300B8C2C3 /* MyLibrary */; };
 		33673A0D2A4F874200B8C2C3 /* TodoListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33673A0C2A4F874200B8C2C3 /* TodoListHeaderView.swift */; };
-		33673A0F2A4F9D7400B8C2C3 /* CustomTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33673A0E2A4F9D7400B8C2C3 /* CustomTransitionAnimator.swift */; };
 		33BD028F2A4C9D49009BF494 /* TodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BD028E2A4C9D49009BF494 /* TodoListTableViewCell.swift */; };
 		33BE54032A43698B00696222 /* TodoItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54022A43698B00696222 /* TodoItemDetailsViewController.swift */; };
 		33BE54062A4385A500696222 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE54052A4385A500696222 /* Fonts.swift */; };
@@ -71,9 +71,9 @@
 		3345CCDB2A462D7800BBEC77 /* SpectrumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectrumView.swift; sourceTree = "<group>"; };
 		3345CCDF2A462EB400BBEC77 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		3345CCE12A46313300BBEC77 /* TodoItemColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemColorPickerView.swift; sourceTree = "<group>"; };
-		3345CCE62A466DA700BBEC77 /* CALayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
+		3360AC5A2A58D68600222DB7 /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
+		3360AC5C2A58D6A400222DB7 /* DefaultNetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNetworkingService.swift; sourceTree = "<group>"; };
 		33673A0C2A4F874200B8C2C3 /* TodoListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListHeaderView.swift; sourceTree = "<group>"; };
-		33673A0E2A4F9D7400B8C2C3 /* CustomTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTransitionAnimator.swift; sourceTree = "<group>"; };
 		33BD028E2A4C9D49009BF494 /* TodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableViewCell.swift; sourceTree = "<group>"; };
 		33BE54022A43698B00696222 /* TodoItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemDetailsViewController.swift; sourceTree = "<group>"; };
 		33BE54052A4385A500696222 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -163,12 +163,9 @@
 		331AB67B2A3859F100EFDD49 /* To_do_list_Yandex */ = {
 			isa = PBXGroup;
 			children = (
-				3345CCE32A466D5E00BBEC77 /* Extensions */,
 				33BE54002A43073B00696222 /* Application */,
-				331AB6B22A3CECDD00EFDD49 /* Model */,
-				331AB6B32A3CED0B00EFDD49 /* Service */,
-				33BE54152A447FD600696222 /* TodoItemDetailsView */,
-				33BD028D2A4C9D1B009BF494 /* TodoListView */,
+				3345CCE32A466D5E00BBEC77 /* Networking */,
+				33413D1E2A58138C0086ACA7 /* Views */,
 				33BE54042A43698F00696222 /* Controllers */,
 				33BE53FF2A43061000696222 /* Resources */,
 				331AB6872A3859F500EFDD49 /* LaunchScreen.storyboard */,
@@ -194,33 +191,28 @@
 			path = To_do_list_YandexUITests;
 			sourceTree = "<group>";
 		};
-		331AB6B22A3CECDD00EFDD49 /* Model */ = {
+		33413D1E2A58138C0086ACA7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				33BD028D2A4C9D1B009BF494 /* TodoListView */,
+				33BE54152A447FD600696222 /* TodoItemDetailsView */,
 			);
-			path = Model;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		331AB6B32A3CED0B00EFDD49 /* Service */ = {
+		3345CCE32A466D5E00BBEC77 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				3360AC5C2A58D6A400222DB7 /* DefaultNetworkingService.swift */,
+				3360AC5A2A58D68600222DB7 /* URLSessionExtension.swift */,
 			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		3345CCE32A466D5E00BBEC77 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				3345CCE62A466DA700BBEC77 /* CALayerExtensions.swift */,
-			);
-			path = Extensions;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		33BD028D2A4C9D1B009BF494 /* TodoListView */ = {
 			isa = PBXGroup;
 			children = (
 				33BD028E2A4C9D49009BF494 /* TodoListTableViewCell.swift */,
-				33673A0E2A4F9D7400B8C2C3 /* CustomTransitionAnimator.swift */,
 				33673A0C2A4F874200B8C2C3 /* TodoListHeaderView.swift */,
 			);
 			path = TodoListView;
@@ -246,10 +238,9 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		33BE54012A43074800696222 /* Views */ = {
+		33BE54012A43074800696222 /* DetailsView */ = {
 			isa = PBXGroup;
 			children = (
-				33BE54132A446FE600696222 /* TodoItemTextView.swift */,
 				33BE54192A44899200696222 /* TodoItemDetailsView.swift */,
 				33BE540B2A44535100696222 /* TodoItemImportanceView.swift */,
 				33BE541D2A448F6000696222 /* DividerView.swift */,
@@ -257,9 +248,8 @@
 				3345CCDB2A462D7800BBEC77 /* SpectrumView.swift */,
 				3345CCDF2A462EB400BBEC77 /* ColorPicker.swift */,
 				3345CCE12A46313300BBEC77 /* TodoItemColorPickerView.swift */,
-				33BE541F2A45871200696222 /* TodoItemDeleteButtonView.swift */,
 			);
-			path = Views;
+			path = DetailsView;
 			sourceTree = "<group>";
 		};
 		33BE54042A43698F00696222 /* Controllers */ = {
@@ -274,7 +264,9 @@
 		33BE54152A447FD600696222 /* TodoItemDetailsView */ = {
 			isa = PBXGroup;
 			children = (
-				33BE54012A43074800696222 /* Views */,
+				33BE54132A446FE600696222 /* TodoItemTextView.swift */,
+				33BE54012A43074800696222 /* DetailsView */,
+				33BE541F2A45871200696222 /* TodoItemDeleteButtonView.swift */,
 			);
 			path = TodoItemDetailsView;
 			sourceTree = "<group>";
@@ -469,7 +461,7 @@
 		33673A0B2A4F275B00B8C2C3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -482,7 +474,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#if which swiftlint > /dev/null; then\n#  swiftlint\n#else\n#  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n#fi\n";
 		};
 		84020F586525C11335F04239 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -520,7 +512,6 @@
 				33BE54082A4392B000696222 /* Colors.swift in Sources */,
 				33BE54202A45871200696222 /* TodoItemDeleteButtonView.swift in Sources */,
 				33BE540C2A44535100696222 /* TodoItemImportanceView.swift in Sources */,
-				3345CCE72A466DA700BBEC77 /* CALayerExtensions.swift in Sources */,
 				3345CCE02A462EB400BBEC77 /* ColorPicker.swift in Sources */,
 				331AB6812A3859F100EFDD49 /* ViewController.swift in Sources */,
 				331AB67D2A3859F100EFDD49 /* AppDelegate.swift in Sources */,
@@ -528,11 +519,12 @@
 				33BE54142A446FE600696222 /* TodoItemTextView.swift in Sources */,
 				33BE540A2A4395EE00696222 /* Images.swift in Sources */,
 				3345CCDC2A462D7800BBEC77 /* SpectrumView.swift in Sources */,
+				3360AC5B2A58D68600222DB7 /* URLSessionExtension.swift in Sources */,
 				331AB67F2A3859F100EFDD49 /* SceneDelegate.swift in Sources */,
-				33673A0F2A4F9D7400B8C2C3 /* CustomTransitionAnimator.swift in Sources */,
 				33BE541A2A44899200696222 /* TodoItemDetailsView.swift in Sources */,
 				33BE54032A43698B00696222 /* TodoItemDetailsViewController.swift in Sources */,
 				33673A0D2A4F874200B8C2C3 /* TodoListHeaderView.swift in Sources */,
+				3360AC5D2A58D6A400222DB7 /* DefaultNetworkingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,6 +709,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DiasMurzagaliyev.To-do-list-Yandex";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -745,6 +738,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DiasMurzagaliyev.To-do-list-Yandex";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

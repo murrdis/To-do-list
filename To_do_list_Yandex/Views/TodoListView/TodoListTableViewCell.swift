@@ -168,8 +168,8 @@ class TodoListTableViewCell: UITableViewCell {
         
         taskLabel.text = todoItem.text
         
-        if (todoItem.hexColor != nil) {
-            taskLabel.textColor = UIColor(hex: todoItem.hexColor!)
+        if (todoItem.color != nil) {
+            taskLabel.textColor = UIColor(hex: todoItem.color!)
         }
         
         if todoItem.deadline != nil {

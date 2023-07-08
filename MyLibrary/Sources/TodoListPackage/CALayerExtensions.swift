@@ -1,7 +1,7 @@
 import UIKit
 
 extension CALayer {
-    func colorOfPoint(point: CGPoint) -> UIColor? {
+    public func colorOfPoint(point: CGPoint) -> UIColor? {
         var pixel: [UInt8] = [0, 0, 0, 0]
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(
