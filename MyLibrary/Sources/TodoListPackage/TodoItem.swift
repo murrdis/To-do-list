@@ -1,7 +1,8 @@
 import Foundation
+import SQLite
 import UIKit
 
-public struct TodoItem {
+public struct TodoItem : Identifiable{
     public let id: String
     public let text: String
     public let importance: Importance
@@ -10,7 +11,7 @@ public struct TodoItem {
     public let created_at: Date
     public let changed_at: Date?
     public let color: HEX?
-    public let last_updated_by: String
+    //public let last_updated_by: String
     
     public enum Importance: String {
         case low
@@ -34,7 +35,7 @@ public struct TodoItem {
             self.created_at = created_at
             self.changed_at = changed_at
             self.color = color
-            self.last_updated_by = UIDevice.current.identifierForVendor?.uuidString ?? ""
+            //self.last_updated_by = UIDevice.current.identifierForVendor?.uuidString ?? ""
         }
 }
 
@@ -211,3 +212,5 @@ extension TodoItem {
         )
     }
 }
+
+
