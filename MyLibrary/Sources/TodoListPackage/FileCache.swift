@@ -4,7 +4,7 @@ import CocoaLumberjackSwift
 public class FileCache {
     private(set) public var todoItems: [TodoItem] = []
     
-    public static let fileCacheObj = FileCache()
+    public static let shared = FileCache()
     
     public func set(items: [TodoItem]) {
         todoItems = items

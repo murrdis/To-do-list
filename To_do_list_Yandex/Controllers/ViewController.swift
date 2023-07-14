@@ -4,7 +4,9 @@ import TodoListPackage
 
 class ViewController: UIViewController {
     
-    let fileCache = FileCache.fileCacheObj
+    let fileCache = FileCache.shared
+    let databaseCache = DatabaseCache.shared
+    let coreDataCache = CoreDataCache.shared
     
     private var itemsWithoutDone = [
         TodoItem(text: "Buy groceries", importance: .important),
@@ -93,10 +95,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fileCache.loadJsonFromFile("TodoItems")
+        //MARK: - FILECACHE
         
-        itemsWithDone = fileCache.todoItems
-        itemsWithoutDone = itemsWithDone.filter { $0.done == false }
+//        fileCache.loadJsonFromFile("TodoItems")
+//        itemsWithDone = fileCache.todoItems
+//        itemsWithoutDone = itemsWithDone.filter { $0.done == false }
+//        items = itemsWithoutDone
+        
+        //MARK: - SQLITE
+//        databaseCache.loadFromDatabase()
+//        itemsWithDone = databaseCache.todoItems
+//        itemsWithoutDone = itemsWithDone.filter{ $0.done == false }
+//        items = itemsWithoutDone
+        
+        //MARK: - COREDATA
+        coreDataCache.loadFromCoreData()
+        itemsWithDone = coreDataCache.todoItems
+        itemsWithoutDone = itemsWithDone.filter{ $0.done == false }
         items = itemsWithoutDone
         
         setupNavBar()
@@ -263,12 +278,26 @@ extension ViewController: UITableViewDelegate {
             title: nil,
             handler: { [weak self] (_, _, completionHandler) in
                 
-                let newItem = self?.items[indexPath.row].copy(done: true)
-                self?.fileCache.addChangeTodoItem(newItem!)
-                self?.fileCache.loadJsonFromFile("TodoItems")
+                let newItem = self?.items[indexPath.row].copy(done: !(self?.items[indexPath.row].done)!)
                 
-                self?.itemsWithDone = self?.fileCache.todoItems ?? []
+                //MARK: - FILECACHE
+//                self?.fileCache.addChangeTodoItem(newItem!)
+//                self?.fileCache.loadJsonFromFile("TodoItems")
+//                self?.itemsWithDone = self?.fileCache.todoItems ?? []
+//                self?.itemsWithoutDone = self?.itemsWithDone.filter { $0.done == false } ?? []
+                
+                //MARK: - SQLITE
+//                self?.databaseCache.updateTodoItem(newItem!)
+//                self?.databaseCache.loadFromDatabase()
+//                self?.itemsWithDone = self?.databaseCache.todoItems ?? []
+//                self?.itemsWithoutDone = self?.itemsWithDone.filter { $0.done == false } ?? []
+                
+                //MARK: - COREDATA
+                self?.coreDataCache.updateTodoItem(newItem!)
+                self?.coreDataCache.loadFromCoreData()
+                self?.itemsWithDone = self?.coreDataCache.todoItems ?? []
                 self?.itemsWithoutDone = self?.itemsWithDone.filter { $0.done == false } ?? []
+                
                 if let shouldShowDoneTasks = self?.shouldShowDoneTasks {
                     if shouldShowDoneTasks {
                         self?.items = self?.itemsWithDone ?? []
@@ -312,10 +341,23 @@ extension ViewController: UITableViewDelegate {
             title: nil,
             handler: { [weak self] (_, _, completionHandler) in
                 
-                self?.fileCache.removeTodoItem(withID: (self?.items[indexPath.row].id)!)
-                self?.fileCache.loadJsonFromFile("TodoItems")
+                //MARK: - FILECACHE
                 
-                self?.itemsWithDone = self?.fileCache.todoItems ?? []
+//                self?.fileCache.removeTodoItem(withID: (self?.items[indexPath.row].id)!)
+//                self?.fileCache.loadJsonFromFile("TodoItems")
+//                self?.itemsWithDone = self?.fileCache.todoItems ?? []
+//                self?.itemsWithoutDone = self?.itemsWithDone.filter { $0.done == false } ?? []
+                
+                //MARK: - SQLITE
+//                self?.databaseCache.removeTodoItem(withID: (self?.items[indexPath.row].id)!)
+//                self?.databaseCache.loadFromDatabase()
+//                self?.itemsWithDone = self?.databaseCache.todoItems ?? []
+//                self?.itemsWithoutDone = self?.itemsWithDone.filter { $0.done == false } ?? []
+                
+                //MARK: - COREDATA
+                self?.coreDataCache.removeTodoItem(withID: (self?.items[indexPath.row].id)!)
+                self?.coreDataCache.loadFromCoreData()
+                self?.itemsWithDone = self?.coreDataCache.todoItems ?? []
                 self?.itemsWithoutDone = self?.itemsWithDone.filter { $0.done == false } ?? []
                 
                 if let shouldShowDoneTasks = self?.shouldShowDoneTasks {
@@ -342,10 +384,21 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController: TodoItemDetailsViewControllerDelegate {
     func didUpdateData() {
-        fileCache.loadJsonFromFile("TodoItems")
+        //MARK: - FILECACHE
+//        fileCache.loadJsonFromFile("TodoItems")
+//        itemsWithDone = fileCache.todoItems
+//        itemsWithoutDone = itemsWithDone.filter { $0.done == false }
         
-        itemsWithDone = fileCache.todoItems
-        itemsWithoutDone = itemsWithDone.filter { $0.done == false }
+        //MARK: - SQLITE
+//        databaseCache.loadFromDatabase()
+//        itemsWithDone = databaseCache.todoItems
+//        itemsWithoutDone = itemsWithDone.filter { $0.done == false}
+        
+        //MARK: - COREDATA
+        coreDataCache.loadFromCoreData()
+        itemsWithDone = coreDataCache.todoItems
+        itemsWithoutDone = itemsWithDone.filter { $0.done == false}
+        
         if shouldShowDoneTasks {
             items = itemsWithDone
         } else {

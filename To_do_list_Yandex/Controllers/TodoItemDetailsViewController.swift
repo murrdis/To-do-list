@@ -11,7 +11,10 @@ class TodoItemDetailsViewController: UIViewController {
     weak var delegate: TodoItemDetailsViewControllerDelegate?
     
     private var taskId: String? = nil
-    private let fileCache = FileCache.fileCacheObj
+    private let fileCache = FileCache.shared
+    private let databaseCache = DatabaseCache.shared
+    let coreDataCache = CoreDataCache.shared
+
     
     var currentItem: TodoItem?
     
@@ -119,7 +122,7 @@ class TodoItemDetailsViewController: UIViewController {
         let saveButton = UIBarButtonItem(title: "Сохранить",
                                          style: .plain,
                                          target: self,
-                                         action: #selector(self.saveTodoItemToFile))
+                                         action: #selector(self.saveTodoItem))
         saveButton.setTitleTextAttributes([NSAttributedString.Key.font: Fonts.headline], for: .normal)
         saveButton.setTitleTextAttributes([NSAttributedString.Key.font: Fonts.headline], for: .highlighted)
         saveButton.setTitleTextAttributes([NSAttributedString.Key.font: Fonts.headline], for: .disabled)
@@ -177,7 +180,7 @@ class TodoItemDetailsViewController: UIViewController {
         )
     }
     
-    @objc private func saveTodoItemToFile() {
+    @objc private func saveTodoItem() {
         guard let text = textView.getTaskName(),
               let importance = detailsView.importanceView.getTaskImportance()
         else { return }
@@ -195,11 +198,24 @@ class TodoItemDetailsViewController: UIViewController {
                                     created_at: curItem.created_at,
                                     changed_at: .now,
                                     color: color)
+            //MARK: - SQLITE
+            //databaseCache.updateTodoItem(todoItem)
+            //MARK: - COREDATA
+            coreDataCache.updateTodoItem(todoItem)
         }
         else {
             todoItem = TodoItem(text: text, importance: importance, deadline: deadline, color: color)
+            //MARK: - SQLITE
+            //databaseCache.insertTodoItem(todoItem)
+            //MARK: - COREDATA
+            coreDataCache.insertTodoItem(todoItem)
+            
         }
-        fileCache.addChangeTodoItem(todoItem)
+        
+        //MARK: - FILECACHE
+        
+        //fileCache.addChangeTodoItem(todoItem)
+        
         delegate?.didUpdateData()
         dismiss(animated: true)
     }
@@ -208,7 +224,14 @@ class TodoItemDetailsViewController: UIViewController {
         guard let id = currentItem?.id
         else { return }
         
-        fileCache.removeTodoItem(withID: id)
+        //MARK: - FILECACHE
+        //fileCache.removeTodoItem(withID: id)
+        
+        //MARK: - SQLITE
+        //databaseCache.removeTodoItem(withID: id)
+        
+        //MARK: - COREDATA
+        coreDataCache.removeTodoItem(withID: id)
         
         
         textView.setTaskName(name: "")
@@ -218,14 +241,6 @@ class TodoItemDetailsViewController: UIViewController {
         enableNavBarSaveButton(isEnabled: false)
         delegate?.didUpdateData()
         dismiss(animated: true)
-    }
-    
-    private func loadTodoItemFromFile() -> TodoItem? {
-        fileCache.loadJsonFromFile("TodoItems")
-        
-        
-        guard fileCache.todoItems.count > 0 else { return nil }
-        return fileCache.todoItems[0]
     }
     
     func enableNavBarSaveButton(isEnabled: Bool) {

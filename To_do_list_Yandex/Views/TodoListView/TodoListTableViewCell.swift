@@ -4,7 +4,7 @@ import TodoListPackage
 class TodoListTableViewCell: UITableViewCell {
     
     let divider = DividerView()
-    private let fileCache = FileCache.fileCacheObj
+    private let fileCache = FileCache.shared
     
     var currItem = TodoItem(text: "")
     
