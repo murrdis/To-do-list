@@ -10,7 +10,7 @@
 		17DEAD0F05052DBFD832C3E9 /* Pods_To_do_list_Yandex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04F89CB2B2A870030970C04 /* Pods_To_do_list_Yandex.framework */; };
 		331AB67D2A3859F100EFDD49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB67C2A3859F100EFDD49 /* AppDelegate.swift */; };
 		331AB67F2A3859F100EFDD49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB67E2A3859F100EFDD49 /* SceneDelegate.swift */; };
-		331AB6812A3859F100EFDD49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB6802A3859F100EFDD49 /* ViewController.swift */; };
+		331AB6812A3859F100EFDD49 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB6802A3859F100EFDD49 /* ListViewController.swift */; };
 		331AB6862A3859F500EFDD49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 331AB6852A3859F500EFDD49 /* Assets.xcassets */; };
 		331AB6892A3859F500EFDD49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 331AB6872A3859F500EFDD49 /* LaunchScreen.storyboard */; };
 		331AB6942A3859F600EFDD49 /* To_do_list_YandexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331AB6932A3859F600EFDD49 /* To_do_list_YandexTests.swift */; };
@@ -37,6 +37,8 @@
 		33BE541C2A448EF300696222 /* TodoItemDeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE541B2A448EF200696222 /* TodoItemDeadlineView.swift */; };
 		33BE541E2A448F6000696222 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE541D2A448F6000696222 /* DividerView.swift */; };
 		33BE54202A45871200696222 /* TodoItemDeleteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE541F2A45871200696222 /* TodoItemDeleteButtonView.swift */; };
+		33EAD2952A67E91C00CBCE7D /* SwiftUIListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAD2942A67E91C00CBCE7D /* SwiftUIListViewController.swift */; };
+		33EAD2982A67EAC300CBCE7D /* SwiftUIListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EAD2972A67EAC300CBCE7D /* SwiftUIListView.swift */; };
 		33F585AD2A606DBE00721154 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 33F585AC2A606DBE00721154 /* SQLite */; };
 		33F585B02A6076C800721154 /* DatabaseCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F585AF2A6076C800721154 /* DatabaseCache.swift */; };
 		6F5A02DC1FEDE3D6E78E3CEE /* Pods_To_do_list_YandexTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBA928E6988263E4FD68B1D /* Pods_To_do_list_YandexTests.framework */; };
@@ -64,7 +66,7 @@
 		331AB6792A3859F100EFDD49 /* To_do_list_Yandex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = To_do_list_Yandex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		331AB67C2A3859F100EFDD49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		331AB67E2A3859F100EFDD49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		331AB6802A3859F100EFDD49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		331AB6802A3859F100EFDD49 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		331AB6852A3859F500EFDD49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		331AB6882A3859F500EFDD49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		331AB68A2A3859F500EFDD49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,6 +95,8 @@
 		33BE541B2A448EF200696222 /* TodoItemDeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemDeadlineView.swift; sourceTree = "<group>"; };
 		33BE541D2A448F6000696222 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		33BE541F2A45871200696222 /* TodoItemDeleteButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemDeleteButtonView.swift; sourceTree = "<group>"; };
+		33EAD2942A67E91C00CBCE7D /* SwiftUIListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIListViewController.swift; sourceTree = "<group>"; };
+		33EAD2972A67EAC300CBCE7D /* SwiftUIListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIListView.swift; sourceTree = "<group>"; };
 		33F585AF2A6076C800721154 /* DatabaseCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCache.swift; sourceTree = "<group>"; };
 		4F2A8FE5EDFBBA095855DCEC /* Pods_To_do_list_Yandex_To_do_list_YandexUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_To_do_list_Yandex_To_do_list_YandexUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		512D20F801B93D374CAA0EF1 /* Pods-To_do_list_Yandex-To_do_list_YandexUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To_do_list_Yandex-To_do_list_YandexUITests.release.xcconfig"; path = "Target Support Files/Pods-To_do_list_Yandex-To_do_list_YandexUITests/Pods-To_do_list_Yandex-To_do_list_YandexUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 		33413D1E2A58138C0086ACA7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				33EAD2962A67EA8100CBCE7D /* SwiftUITodoListView */,
 				33BD028D2A4C9D1B009BF494 /* TodoListView */,
 				33BE54152A447FD600696222 /* TodoItemDetailsView */,
 			);
@@ -266,7 +271,8 @@
 		33BE54042A43698F00696222 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				331AB6802A3859F100EFDD49 /* ViewController.swift */,
+				33EAD2942A67E91C00CBCE7D /* SwiftUIListViewController.swift */,
+				331AB6802A3859F100EFDD49 /* ListViewController.swift */,
 				33BE54022A43698B00696222 /* TodoItemDetailsViewController.swift */,
 			);
 			path = Controllers;
@@ -280,6 +286,14 @@
 				33BE541F2A45871200696222 /* TodoItemDeleteButtonView.swift */,
 			);
 			path = TodoItemDetailsView;
+			sourceTree = "<group>";
+		};
+		33EAD2962A67EA8100CBCE7D /* SwiftUITodoListView */ = {
+			isa = PBXGroup;
+			children = (
+				33EAD2972A67EAC300CBCE7D /* SwiftUIListView.swift */,
+			);
+			path = SwiftUITodoListView;
 			sourceTree = "<group>";
 		};
 		33F585AE2A6076A300721154 /* Model */ = {
@@ -531,8 +545,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33EAD2982A67EAC300CBCE7D /* SwiftUIListView.swift in Sources */,
 				33B1203E2A6172450060DF0C /* CoreDataCache.swift in Sources */,
 				33BD028F2A4C9D49009BF494 /* TodoListTableViewCell.swift in Sources */,
+				33EAD2952A67E91C00CBCE7D /* SwiftUIListViewController.swift in Sources */,
 				33B1209F2A61C7250060DF0C /* CoreData.xcdatamodeld in Sources */,
 				33BE541C2A448EF300696222 /* TodoItemDeadlineView.swift in Sources */,
 				33BE54062A4385A500696222 /* Fonts.swift in Sources */,
@@ -543,7 +559,7 @@
 				33B1208E2A61BB080060DF0C /* CoreDataContainer.swift in Sources */,
 				33BE540C2A44535100696222 /* TodoItemImportanceView.swift in Sources */,
 				3345CCE02A462EB400BBEC77 /* ColorPicker.swift in Sources */,
-				331AB6812A3859F100EFDD49 /* ViewController.swift in Sources */,
+				331AB6812A3859F100EFDD49 /* ListViewController.swift in Sources */,
 				331AB67D2A3859F100EFDD49 /* AppDelegate.swift in Sources */,
 				3345CCE22A46313300BBEC77 /* TodoItemColorPickerView.swift in Sources */,
 				33BE54142A446FE600696222 /* TodoItemTextView.swift in Sources */,
