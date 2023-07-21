@@ -16,7 +16,7 @@ class TodoItemDetailsViewController: UIViewController {
     let coreDataCache = CoreDataCache.shared
 
     
-    var currentItem: TodoItem?
+    var currentTask: TodoItem?
     
     private var saveButton: UIBarButtonItem?
 
@@ -80,16 +80,16 @@ class TodoItemDetailsViewController: UIViewController {
     }
     
     private func loadTodoItem() {
-        guard let currentItem
+        guard let currentTask
         else {
             enableNavBarSaveButton(isEnabled: false)
             return
         }
         
-        textView.setTaskName(name: currentItem.text)
-        detailsView.importanceView.setTaskImportance(importance: currentItem.importance)
-        detailsView.deadlineView.setTaskDeadline(deadline: currentItem.deadline)
-        detailsView.colorPicker.setTaskColor(color:  (currentItem.color ?? Colors.labelPrimary?.hex!)!)
+        textView.setTaskName(name: currentTask.text)
+        detailsView.importanceView.setTaskImportance(importance: currentTask.importance)
+        detailsView.deadlineView.setTaskDeadline(deadline: currentTask.deadline)
+        detailsView.colorPicker.setTaskColor(color:  (currentTask.color ?? Colors.labelPrimary?.hex!)!)
         enableNavBarSaveButton(isEnabled: true)
         deleteButton.isEnabled = true
     }
@@ -166,7 +166,7 @@ class TodoItemDetailsViewController: UIViewController {
         )
         NSLayoutConstraint.activate(
             [
-                mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+                mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 28),
                 mainStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
                 mainStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
                 mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
@@ -189,7 +189,7 @@ class TodoItemDetailsViewController: UIViewController {
         
         let todoItem: TodoItem
         
-        if let curItem = currentItem {
+        if let curItem = currentTask {
             todoItem = TodoItem(id: curItem.id,
                                     text: text,
                                     importance: importance,
@@ -221,7 +221,7 @@ class TodoItemDetailsViewController: UIViewController {
     }
     
     @objc private func deleteTodoItem() {
-        guard let id = currentItem?.id
+        guard let id = currentTask?.id
         else { return }
         
         //MARK: - FILECACHE

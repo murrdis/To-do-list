@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "11F76942-A59F-4BE2-8683-2FDF4971F65E"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C63BF8ED-E4B1-4F4B-9ABD-071901704C4B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "To_do_list_Yandex/Controllers/SwiftUIListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C63BF8ED-E4B1-4F4B-9ABD-071901704C4B - fb9067e11fbffba3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "To_do_list_Yandex.SwiftUIListViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "To_do_list_Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diasmurzagaliyev/Desktop/ios-todo-app-murrdis/To_do_list_Yandex/Controllers/SwiftUIListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "2735">
+               </Location>
+               <Location
+                  uuid = "C63BF8ED-E4B1-4F4B-9ABD-071901704C4B - fb9067e11fbffba3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "To_do_list_Yandex.SwiftUIListViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "To_do_list_Yandex"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diasmurzagaliyev/Desktop/ios-todo-app-murrdis/To_do_list_Yandex/Controllers/SwiftUIListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "2138">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

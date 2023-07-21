@@ -2,7 +2,7 @@ import UIKit
 import Foundation
 import TodoListPackage
 
-class ViewController: UIViewController {
+class ListViewController: UIViewController {
     
     let fileCache = FileCache.shared
     let databaseCache = DatabaseCache.shared
@@ -123,7 +123,7 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.layoutMargins.top = 44
         navigationController?.navigationBar.layoutMargins.left = 32
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Colors.labelPrimary, .font: Fonts.largeTitle]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Colors.labelPrimary!, .font: Fonts.largeTitle]
         navigationItem.title = "Мои дела"
         
         let compactAppearance = UINavigationBarAppearance()
@@ -219,14 +219,14 @@ final class ContentSizedTableView: UITableView {
     }
 }
 
-extension ViewController: TodoListHeaderViewDelegate {
+extension ListViewController: TodoListHeaderViewDelegate {
     func todoListHeaderView(_ view: TodoListHeaderView, didSelectShowButton isSelected: Bool) {
         showDoneTasks()
     }
     
 }
 
-extension ViewController: UITableViewDataSource {
+extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count + 1
     }
@@ -259,14 +259,14 @@ extension ViewController: UITableViewDataSource {
         } else {
             let detailsVC = TodoItemDetailsViewController()
             detailsVC.delegate = self
-            detailsVC.currentItem = items[indexPath.row]
+            detailsVC.currentTask = items[indexPath.row]
             self.present(detailsVC, animated: true)
         }
     }
     
 }
 
-extension ViewController: UITableViewDelegate {
+extension ListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         guard !items.isEmpty else {
@@ -382,7 +382,7 @@ extension ViewController: UITableViewDelegate {
 }
 
 
-extension ViewController: TodoItemDetailsViewControllerDelegate {
+extension ListViewController: TodoItemDetailsViewControllerDelegate {
     func didUpdateData() {
         //MARK: - FILECACHE
 //        fileCache.loadJsonFromFile("TodoItems")
